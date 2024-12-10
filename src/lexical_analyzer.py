@@ -30,3 +30,11 @@ symbol_table = []
 token_count = {token: 0 for token in tokens}
 processed_tokens = [] 
 error_tokens = []
+
+# Expressões regulares para os tokens
+def t_KEYWORD(t):
+    r'\b(some|all|value|min|max|exactly|that|not|and|or|only)\b|Class:|EquivalentTo:|Individuals:|SubClassOf:|DisjointClasses:'
+    if t.value in keywords:
+        t.type = 'KEYWORD'
+    #add_to_symbol_table(t)
+    return t
