@@ -78,3 +78,8 @@ def t_newline(t):
 
 # Ignorar espaços e tabulações
 t_ignore = ' \t'
+
+# Tratamento de erros
+def t_error(t):
+    #add_to_error_list(t)
+    t.lexer.skip(1)
