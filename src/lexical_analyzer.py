@@ -184,3 +184,8 @@ def menu():
             break
         else:
             print("Opção inválida. Tente novamente.")
+
+# Caminho do arquivo de entrada
+file_path = input("Digite o caminho do arquivo: ")
+if process_file(file_path):
+    menu()
