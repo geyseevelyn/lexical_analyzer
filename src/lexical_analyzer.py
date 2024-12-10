@@ -146,3 +146,11 @@ def show_tokens():
         print("\n=========================== Erros ===========================\n")
         for error in error_tokens:
             print(f"{error['Token']:<25} {error['Valor']:<25} {error['Linha']:<6} {error['Posição']:<5}")
+
+# Função para exibir a tabela de símbolos
+def show_symbol_table():
+    print("\n================= Tabela de Símbolos =================\n")
+    print(f"{'Token':<25} {'Valor':<30}")
+    print("-" * 55)
+    for entry in symbol_table:
+        print(f"{entry['Token']:<25} {entry['Valor']:<30}")
