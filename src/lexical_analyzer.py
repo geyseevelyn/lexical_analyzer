@@ -70,3 +70,11 @@ def t_CARDINALITY(t):
     t.value = int(t.value)
     #add_to_symbol_table(t)
     return t
+
+# Atualizar contagem de linhas
+def t_newline(t):
+    r'\n+'
+    t.lexer.lineno += len(t.value)
+
+# Ignorar espaços e tabulações
+t_ignore = ' \t'
