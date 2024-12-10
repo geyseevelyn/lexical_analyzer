@@ -38,3 +38,9 @@ def t_KEYWORD(t):
         t.type = 'KEYWORD'
     #add_to_symbol_table(t)
     return t
+
+def t_DATATYPE(t):
+    r'(xsd|owl|rdf|rdfs):[a-zA-Z]+(?:[a-zA-Z0-9]*)?'
+    if t.value in valid_datatypes:
+        #add_to_symbol_table(t)
+        return t
