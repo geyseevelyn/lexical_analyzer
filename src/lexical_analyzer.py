@@ -44,3 +44,8 @@ def t_DATATYPE(t):
     if t.value in valid_datatypes:
         #add_to_symbol_table(t)
         return t
+
+def t_INDIVIDUAL_NAME(t):
+    r'[A-Z][a-z]*[a-zA-Z]*[0-9]+'
+    #add_to_symbol_table(t)
+    return t
