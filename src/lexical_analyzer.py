@@ -44,6 +44,15 @@ def add_to_symbol_table(token):
     token_count[token.type] += 1
     processed_tokens.append(token)
 
+# Função para adicionar erros
+def add_to_error_list(token):
+    error_tokens.append({
+        'Token': 'ERRO',
+        'Valor': token.value[0],
+        'Linha': token.lineno,
+        'Posição': token.lexpos
+    })
+
 # Expressões regulares para os tokens
 def t_KEYWORD(t):
     r'\b(some|all|value|min|max|exactly|that|not|and|or|only)\b|Class:|EquivalentTo:|Individuals:|SubClassOf:|DisjointClasses:'
@@ -94,5 +103,5 @@ t_ignore = ' \t'
 
 # Tratamento de erros
 def t_error(t):
-    #add_to_error_list(t)
+    add_to_error_list(t)
     t.lexer.skip(1)
