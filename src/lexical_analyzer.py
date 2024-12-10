@@ -162,3 +162,25 @@ def show_token_count():
     print("-" * 35)
     for token, count in token_count.items():
         print(f"{token:<25} {count:<10}")
+
+# Menu interativo
+def menu():
+    while True:
+        print("\n====== MENU DE OPÇÕES ======")
+        print("1. Exibir Tokens Processados")
+        print("2. Exibir Tabela de Símbolos")
+        print("3. Exibir Contagem de Tokens")
+        print("4. Sair")
+        choice = input("Escolha uma opção: ")
+
+        if choice == '1':
+            show_tokens()
+        elif choice == '2':
+            show_symbol_table()
+        elif choice == '3':
+            show_token_count()
+        elif choice == '4':
+            print("Saindo...")
+            break
+        else:
+            print("Opção inválida. Tente novamente.")
