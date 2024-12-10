@@ -131,3 +131,18 @@ def process_file(file_path):
         print(f"Erro ao processar o arquivo: {e}")
         return False
     return True
+
+# Função para exibir os tokens processados
+def show_tokens():
+    print("\n====================== Tokens Processados ======================\n")
+    header = f"{'Token':<25} {'Valor':<23} {'Linha':<6} {'Posição':<5}"
+    print(header)
+    print("-" * len(header))
+
+    for token in processed_tokens:
+        print(f"{token.type:<25} {str(token.value):<25} {token.lineno:<6} {token.lexpos:<5}")
+
+    if error_tokens:
+        print("\n=========================== Erros ===========================\n")
+        for error in error_tokens:
+            print(f"{error['Token']:<25} {error['Valor']:<25} {error['Linha']:<6} {error['Posição']:<5}")
