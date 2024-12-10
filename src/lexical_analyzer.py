@@ -54,3 +54,8 @@ def t_CLASS_ID(t):
     r'[A-Z][a-zA-Z]*(?:_[A-Z][a-zA-Z]*)*'
     #add_to_symbol_table(t)
     return t
+
+def t_PROPERTY_ID(t):
+    r'(has[A-Z][a-zA-Z]*)|(is[A-Z][a-zA-Z]*Of)|([a-z][a-zA-Z]*)'
+    #add_to_symbol_table(t)
+    return t
