@@ -154,3 +154,11 @@ def show_symbol_table():
     print("-" * 55)
     for entry in symbol_table:
         print(f"{entry['Token']:<25} {entry['Valor']:<30}")
+
+# Função para exibir a contagem de tokens
+def show_token_count():
+    print("\n======= Contagem de Tokens =======\n")
+    print(f"{'Token':<20} {'Quantidade':<10}")
+    print("-" * 35)
+    for token, count in token_count.items():
+        print(f"{token:<25} {count:<10}")
