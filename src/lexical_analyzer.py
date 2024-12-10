@@ -64,3 +64,9 @@ def t_SPECIAL_SYMBOL(t):
     r'[<>=\[\]{}(),"]|>=|<='
     #add_to_symbol_table(t)
     return t
+
+def t_CARDINALITY(t):
+    r'-?\d+'
+    t.value = int(t.value)
+    #add_to_symbol_table(t)
+    return t
