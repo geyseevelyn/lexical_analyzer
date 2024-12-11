@@ -211,6 +211,6 @@ Este projeto está sob a licença [MIT](./LICENSE).
 ---
 
 <div align="center">
-    <a href="https://github.com/geyseevelyn/lexical_analyzer/edit/develop/README.md#analisador-l%C3%A9xico">Voltar ao topo</a>
+    <a href="https://github.com/geyseevelyn/lexical_analyzer?tab=readme-ov-file#analisador-l%C3%A9xico">Voltar ao topo</a>
 </div>
  
