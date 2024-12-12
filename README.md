@@ -1,12 +1,13 @@
-# Analisador Léxico
+# Analisador Léxico para OWL2 (Manchester Syntax)
 
-Este projeto implementa um **analisador léxico** para a linguagem [*OWL2*](https://www.w3.org/TR/owl2-overview/) no formato [*Manchester Syntax*](https://www.w3.org/TR/owl2-manchester-syntax/), utilizando Python e a biblioteca PLY. O objetivo é identificar e categorizar os *tokens* presentes em uma ontologia descrita neste formato, produzindo uma tabela de símbolos como saída.
+Este projeto implementa um **analisador léxico** para a linguagem [*OWL2*](https://www.w3.org/TR/owl2-overview/) no formato [*Manchester Syntax*](https://www.w3.org/TR/owl2-manchester-syntax/), utilizando *Python* e a biblioteca *PLY*. O objetivo é identificar e categorizar os *tokens* presentes em uma ontologia descrita neste formato, produzindo uma tabela de símbolos como saída.
 
 ---
 
 ## 📋 Tabela de Conteúdos
 <!--ts-->
    * [Sobre o Projeto](#-sobre-o-projeto)
+   * [Ferramentas Utilizadas](#-ferramentas-utilizadas)
    * [Como Usar](#-como-usar)
    * [Funcionalidades](#-funcionalidades)
    * [Descrição do Tokens](#-descrição-dos-tokens)
@@ -19,18 +20,55 @@ Este projeto implementa um **analisador léxico** para a linguagem [*OWL2*](http
 
 ## 📖 Sobre o Projeto
 
-A linguagem **OWL2** é amplamente usada para criar ontologias e descrever relações semânticas na Web. O formato **Manchester Syntax** foi projetado para ser legível por humanos, permitindo descrever conceitos em lógica descritiva. Este **analisador léxico** é capaz de processar trechos de ontologias nesse formato e identificar elementos como palavras reservadas, identificadores de classe e propriedades, símbolos especiais, nomes de indivíduos, tipos de dados e cardinalidades.
+
+
+
+
+A **OWL2** (*Web Ontology Language*)  é uma linguagem de representação de ontologias desenvolvida pelo **W3C** para modelar conhecimento em domínios específicos de forma computacionalmente processável. Baseado em lógica descritiva, permite descrever formalmente classes, propriedades e relações entre elementos, possibilitando inferências automáticas. A escolha do formato **Manchester Syntax** deve-se à sua legibilidade, permitindo que humanos compreendam e editem facilmente descrições complexas de ontologias.
+
+O **Analisador Léxico para OWL2 (Manchester Syntax)** foi desenvolvido como parte de um estudo prático sobre a construção de compiladores e ferramentas de análise léxica. O projeto tem como objetivo o reconhecimento e categorização dos seguintes elementos da linguagem **OWL2** no formato **Manchester Syntax**:
+
+- Palavras reservadas;
+- Identificadores de classes e propriedades;
+- Nomes de indivíduos;
+- Tipos de dados;
+- Cardinalidades;
+- Símbolos especiais.
+
+O resultado é uma **tabela de símbolos** e **relatórios detalhados** sobre os *tokens* encontrados, permitindo uma base sólida para análise sintática ou semântica posterior.
 
 ---
 
-## ⚙ Como Usar
+## 🛠 Ferramentas Utilizadas
+
+1. [**Python**](https://www.python.org/downloads/):
+
+   - Linguagem de programação de alto nível escolhida pela sua simplicidade e vasta gama de bibliotecas.
+   - Permite o uso de frameworks e ferramentas voltados para análise léxica e sintática de forma eficiente.
+
+2. [**PLY (Python Lex-Yacc)**](https://www.dabeaz.com/ply/):
+
+   - Biblioteca que fornece uma implementação em Python para **análise léxica** e **parsing**.
+   - Inspirada no tradicional **Lex/Yacc**, utiliza expressões regulares para definir tokens e gramáticas.
+   - É altamente eficiente para criar analisadores léxicos baseados em regras, como exigido neste projeto.
+
+
+3. [**VS Code**](https://code.visualstudio.com/) e [**GitHub**](https://github.com/):
+
+   - Ferramentas como **VS Code** e **GitHub** foram utilizadas para o desenvolvimento colaborativo e controle de versão.
+
+---
+
+## 🚀 Como Usar
+
+Nesta seção, você encontrará todas as informações necessárias para começar a utilizar este projeto.
 
 ### Pré-requisitos 
 
 - [Python](https://www.python.org/downloads/)
-- [Biblioteca PLY](https://www.dabeaz.com/ply/) (Python Lex-Yacc)
+- [Biblioteca PLY (Python Lex-Yacc)](https://pypi.org/project/ply/)
 
-### Passo a Passo
+### Execução
 
 1. Clone o repositório ou baixe o arquivo ZIP:
 
@@ -78,58 +116,67 @@ A linguagem **OWL2** é amplamente usada para criar ontologias e descrever rela�
 
 ## ✨ Funcionalidades
 
-- Identificação de **palavras reservadas**, **classes**, **propriedades** e **indivíduos**, **tipos de dados**, **símbolos especiais** e **cardinalidades**.
+- **Reconhecimento de Tokens:** palavras reservadas, classes, propriedades, indivíduos, tipos de dados, símbolos especiais e cardinalidades da linguagem **OWL2** no formato **Manchester Syntax**.
 
-- Geração de **tabela de símbolos**.
+- **Geração de Tabela de Símbolos:** organiza e exibe todos os *tokens* identificados.
 
-- Registro de **erros léxicos** encontrados no código.
- 
-- **Menu interativo** com exibição de dados processados.
+- **Registro de Erros Léxicos:** detecta e lista *tokens* inválidos encontrados durante o processamento.
+
+- **Menu Interativo:** permite a navegação e visualização de resultados
 
 ---
 
 ## 🔤 Descrição dos Tokens
 
-### 1. Palavras Reservadas
-Tokens que representam palavras-chave da linguagem:
+### 1. `KEYWORD`
 
-- `some`, `all`, `value`, `min`, `max`, `exactly`, `that`
-- `not`, `and`, `or`, `only`
-- `Class:`, `EquivalentTo:`, `Individuals:`, `SubClassOf:`, `DisjointClasses:`
+*Tokens* que representam as **palavras reservadas** da linguagem:
 
-### 2. Identificadores de Classes
-Nomes que representam classes na ontologia:
+- *some, all, value, min, max, exactly, that*
+- *not, and, or, only*
+- *Class, EquivalentTo, Individuals, SubClassOf, DisjointClasses* 
 
-- Começam com letra maiúscula, p.ex.: `Pizza`.
-- Nomes compostos concatenados e com iniciais maiúsculas, p.ex.: `VegetarianPizza`.
-- Nomes compostos separados por underline, p.ex.: `Margherita_Pizza`..
+   - Todos sucedidos por `:` (indicam tipos na linguagem OWL)
 
-### 3. Identificadores de Propriedades
-Nomes que representam propriedades das classes:
+### 2. `CLASS_ID`
 
-- Começam com "has", seguidos de uma string simples ou composta, p.ex.: `hasTopping`, `hasBase`.
-- Começam com "is", seguidos de qualquer coisa, e terminam com `Of`, p.ex.: `isToppingOf`, `isBaseOf`.
-- Outros nomes geralmente começam com letra minúscula, p.ex.: `ssn`, `numberOfPizzasPurchased`.
+*Tokens* que representam **identificadores de classes** na ontologia:
 
-### 4. Nomes de Indivíduos
-Identificam instâncias específicas de classes:
+- Começam com letra maiúscula, p.ex.: *Pizza*.
+- Nomes compostos concatenados e com iniciais maiúsculas, p.ex.: *VegetarianPizza*.
+- Nomes compostos separados por *underline*, p.ex.: *Margherita_Pizza*.
 
-- Começam com uma letra maiúscula, seguida de qualquer combinação de letras minúsculas e terminando com um número. Exemplo: `Customer1`, `Pizza1`, `Waiter2`.
+### 3. `PROPERTY_ID` 
 
-### 5. Tipos de Dados
-Representam tipos suportados pela linguagem OWL, RDF, RDFs ou XML Schema:
+*Tokens* que representam **identificadores de propriedades** das classes:
 
-- Exemplo: `xsd:integer`, `xsd:string`, `owl:real`.
+- Começam com `has`, seguidos de uma string simples ou composta, p.ex.: *hasTopping*, *hasBase*.
+- Começam com `is`, seguidos de qualquer coisa, e terminam com `Of`, p.ex.: *isToppingOf*, *isBaseOf*.
+- Nomes de propriedades geralmente começam com letra minúscula e são seguidos por qualquer outra sequência de letras, p.ex.: *ssn*, *numberOfPizzasPurchased*.
 
-### 6. Símbolos Especiais
-Incluem caracteres utilizados para estruturar expressões:
+### 4. `INDIVIDUAL_NAME`
 
-- `[`, `]`, `{`, `}`, `(`, `)`, `<`, `>`, `=`,`,`.
+*Tokens* que identificam os **nomes de indivíduos** (instâncias específicas de classes):
 
-### 7. Cardinalidades
-Especificam restrições numéricas para relações ou propriedades:
+- Começam com uma letra maiúscula, seguida de qualquer combinação de letras minúsculas e terminando com um número. Exemplo: *Customer1*, *Pizza1*, *Waiter2*.
 
-- Exemplo: min `3`, exactly `2`.
+### 5. `DATATYPE`
+
+*Tokens* que representam os **tipos de dados** nativos das linguagens OWL, RDF, RDFs ou XML Schema:
+
+- Exemplos: *owl:real*, *rdf:langString*, *rdfs:Literal*, *xsd:string*.
+
+### 6. `SPECIAL_SYMBOL`
+
+*Tokens* que representam **símbolos especiais** utilizados para estruturar expressões:
+
+- Exemplos: *`[`, `]`, `{`, `}`, `(`, `)`, `<`, `>`, `=`,`,`.*
+
+### 7. `CARDINALITY`
+
+*Tokens* que especificam restrições numéricas para relações ou propriedades:
+
+- Exemplo: *hasTopping min **3***
 
 ---
 
