@@ -258,6 +258,6 @@ Este projeto está sob a licença [MIT](./LICENSE).
 ---
 
 <div align="center">
-    <a href="https://github.com/geyseevelyn/lexical_analyzer?tab=readme-ov-file#analisador-l%C3%A9xico">Voltar ao topo</a>
+    <a href="https://github.com/geyseevelyn/lexical_analyzer?tab=readme-ov-file#analisador-l%C3%A9xico-para-owl2-manchester-syntax">Voltar ao topo</a>
 </div>
  
