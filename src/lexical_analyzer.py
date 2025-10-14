@@ -1,0 +1,50 @@
+import ply.lex as lex
+
+# Lista de tokens
+tokens = [
+    'CLASS_STEREOTYPE', 'RELATION_STEREOTYPE', 'KEYWORDS', 'SPECIAL_SYMBOL', 
+    'CLASS_NAME', 'RELATION_NAME', 'INSTANCE_NAME', 'NATIVE_DATATYPE', 'NEW_DATATYPE',
+    'META_ATTRIBUTE'
+]
+# Estereótipos de classe
+class_stereotypes = { 
+    'event', 'situation', 'process', 'category', 'mixin',
+    'phaseMixin', 'roleMixin', 'historicalRoleMixin', 'kind', 'collective',
+    'quantity', 'quality', 'mode', 'intrisicMode', 'extrinsicMode', 'subkind',
+    'phase', 'role', 'historicalRole'
+}
+
+symbol_table = []
+token_count = {token: 0 for token in tokens}
+processed_tokens = [] 
+error_tokens = []
+
+# Adiciona o token à tabela de símbolos e atualiza o contador
+def add_to_symbol_table(token):
+    if any(entry['Valor'] == token.value for entry in symbol_table):
+        token_count[token.type] += 1
+        processed_tokens.append(token)
+        return  # Não adiciona duplicatas
+    symbol_table.append({
+        'Token': token.type,
+        'Valor': token.value
+    })
+    token_count[token.type] += 1
+    processed_tokens.append(token)
+
+# Função para adicionar erros
+def add_to_error_list(token):
+    error_tokens.append({
+        'Token': 'ERRO',
+        'Valor': token.value[0],
+        'Linha': token.lineno,
+        'Posição': token.lexpos
+    })
+
+# Expressões regulares para os tokens
+def t_CLASS_STEREOTYPE(t):
+    r'\b(event|situation|process|category|mixin|phaseMixin|roleMixin|historicalRoleMixin|kind|collective|quantity|quality|mode|intrisicMode|extrinsicMode|subkind|phase|role|historicalRole)\b'
+    if t.value in class_stereotypes:
+        t.type = 'CLASS_STEREOTYPE'
+    add_to_symbol_table(t)
+    return t
