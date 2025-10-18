@@ -80,37 +80,37 @@ relator Avaliacao_de_Risco
 
 quality Nivel_de_Risco
 
-genset disjoint_complete {
+genset DisjointComplete {
     general Componente_Alimentar
     specifics Proteina, Aditivo_Alimentar, Carboidrato
 }
 
-genset disjoint_complete {
+genset DisjointComplete {
     general Alergia
     specifics Imuno_Mediada, Mista, Nao_Imuno_Mediada
 }
 
-genset disjoint_complete {
+genset DisjointComplete {
     general Sintoma
     specifics Respiratorio, Sistemico, Gastrointestinal, Cutaneo
 }
 
-genset disjoint_complete {
+genset DisjointComplete {
     general Procedimento
     specifics Teste_Cutaneo, Teste_de_Dosagem_IgE_Serica, Teste_de_Provocacao_Oral
 }
 
-genset disjoint_complete {
+genset DisjointComplete {
     general Alimento
     specifics Formula, Ingrediente
 }
 
-genset disjoint_complete {
+genset DisjointComplete {
     general Paciente
     specifics Crianca, Adulto
 }
 
-genset disjoint_complete {
+genset DisjointComplete {
     general Tratamento
     specifics Imunoterapia_Oral, Medicamento, Dieta_de_Exclusao
 }

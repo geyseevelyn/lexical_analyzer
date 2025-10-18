@@ -4,7 +4,7 @@ package TDAH
 
 category Hyperactivity_Symptom
 
-category Neurologically_Based_Condition specializes Medical_Condition 
+category Neurologically_Based_Condition specializes Medical_Condition
 
 mixin Medical_Condition 
 
@@ -22,9 +22,9 @@ mode Behavioral_Therapy
 
 mode Medication_Therapy
 
-subkind Methylphenidate_ specializes Medicine 
+subkind Methylphenidate specializes Medicine 
 
-subkind Dextroamphetamine_ specializes Medicine 
+subkind Dextroamphetamine specializes Medicine 
 
 relator Prescription
 
@@ -42,63 +42,63 @@ kind Medicine
 
 role Psychologist specializes Person 
 
-kind Criterion_B
+kind CriterionB
 
-kind Criterion_C
+kind CriterionC
 
-kind Criterion_D
+kind CriterionD
 
-kind Criterion_E
+kind CriterionE
 
-kind Criterion_A_One_a specializes Hyperactivity_Symptom 
+kind CriterionAOneA specializes Hyperactivity_Symptom
 
-kind Criterion_A_One_b specializes Hyperactivity_Symptom 
+kind CriterionAOneB specializes Hyperactivity_Symptom
 
-kind Criterion_A_One_c specializes Hyperactivity_Symptom 
+kind CriterionAOneC specializes Hyperactivity_Symptom
 
-kind Criterion_A_One_d specializes Hyperactivity_Symptom 
+kind CriterionAOneD specializes Hyperactivity_Symptom
 
-kind Criterion_A_One_e specializes Hyperactivity_Symptom 
+kind CriterionAOneE specializes Hyperactivity_Symptom
 
-kind Criterion_A_One_f specializes Hyperactivity_Symptom 
+kind CriterionAOneF specializes Hyperactivity_Symptom
 
-kind Criterion_A_One_g specializes Hyperactivity_Symptom 
+kind CriterionAOneG specializes Hyperactivity_Symptom
 
-kind Criterion_A_One_h specializes Hyperactivity_Symptom 
+kind CriterionAOneH specializes Hyperactivity_Symptom
 
-kind Criterion_A_One_i specializes Hyperactivity_Symptom 
+kind CriterionAOneI specializes Hyperactivity_Symptom
 
-kind Criterion_A_Two_a specializes Inattention_Symptom 
+kind CriterionATwoA specializes Inattention_Symptom
 
-kind Criterion_A_Two_b specializes Inattention_Symptom 
+kind CriterionATwoB specializes Inattention_Symptom
 
-kind Criterion_A_Two_c specializes Inattention_Symptom 
+kind CriterionATwoC specializes Inattention_Symptom
 
-kind Criterion_A_Two_d specializes Inattention_Symptom 
+kind CriterionATwoD specializes Inattention_Symptom
 
-kind Criterion_A_Two_e specializes Inattention_Symptom 
+kind CriterionATwoE specializes Inattention_Symptom
 
-kind Criterion_A_Two_f specializes Inattention_Symptom 
+kind CriterionATwoF specializes Inattention_Symptom
 
-kind Criterion_A_Two_g specializes Inattention_Symptom 
+kind CriterionATwoG specializes Inattention_Symptom
 
-kind Criterion_A_Two_h specializes Inattention_Symptom 
+kind CriterionATwoH specializes Inattention_Symptom
 
-kind Criterion_A_Two_i specializes Inattention_Symptom 
+kind CriterionATwoI specializes Inattention_Symptom
 
 quality Severity
 
-subkind Criterion_A_One specializes Criterion_A 
+subkind CriterionAOne specializes CriterionA
 
-subkind Criterion_A_Two specializes Criterion_A 
+subkind CriterionATwo specializes CriterionA
 
-kind Criterion_A
+kind CriterionA
 
 kind ADHD specializes Neurologically_Based_Condition 
 
 disjoint complete genset TypesOfMedicine {
     general Medicine
-    specifics Dextroamphetamine_, Methylphenidate_
+    specifics Dextroamphetamine, Methylphenidate
 }
 
 disjoint complete genset PhasesOfAPatient {
