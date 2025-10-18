@@ -41,14 +41,24 @@ def add_to_symbol_table(token):
     token_count[token.type] += 1
     processed_tokens.append(token)
 
-# Função para adicionar erros
+# Função para adicionar erros (captura o lexema inválido completo e retorna o tamanho consumido)
 def add_to_error_list(token):
+    data = token.lexer.lexdata
+    start = token.lexer.lexpos
+    i = start
+    n = len(data)
+    # Delimitadores conhecidos (não consumir para não perder tokens válidos seguintes)
+    delimiters = set('{}()[]:@,.*-<>')
+    while i < n and (not data[i].isspace()) and (data[i] not in delimiters):
+        i += 1
+    invalid_lexeme = data[start:i] if i > start else data[start:start+1]
     error_tokens.append({
         'Token': 'ERRO',
-        'Valor': token.value[0],
+        'Valor': invalid_lexeme,
         'Linha': token.lineno,
         'Posição': token.lexpos
     })
+    return max(1, i - start)
 
 # Expressões regulares para os tokens
 
@@ -180,8 +190,8 @@ t_ignore = ' \t'
 
 # Tratamento de erros
 def t_error(t):
-    add_to_error_list(t)
-    t.lexer.skip(1)
+    consumed = add_to_error_list(t)
+    t.lexer.skip(consumed)
 
 # Construção do Lexer
 lexer = lex.lex()
