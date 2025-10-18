@@ -4,7 +4,7 @@ import ply.lex as lex
 tokens = [
     'CLASS_STEREOTYPE', 'RELATION_STEREOTYPE', 'KEYWORD', 'SPECIAL_SYMBOL', 'CLASS_NAME', 
     'RELATION_NAME','INSTANCE_NAME', 'NATIVE_DATATYPE', 'NEW_DATATYPE','META_ATTRIBUTE',
-    'ENUM_NAME', 'PACKAGE_NAME', 'GENSET_NAME', 'ATTRIBUTE'
+    'ENUM_NAME', 'PACKAGE_NAME', 'GENSET_NAME', 'ATTRIBUTE', 'CARDINALITY'
 ]
 
 # Palavras reservadas
@@ -71,6 +71,22 @@ def t_ENUM_NAME(t):
     add_to_symbol_table(t)
     return t
 
+# Cardinalidade [n], [n..m], [n..*], [*]
+def t_CARDINALITY(t):
+    r'\[\s*(\*|\d+)\s*(?:\.\.\s*(\*|\d+))?\s*\]'
+    # remove espaços internos
+    content = t.value[1:-1].strip()
+    if '..' in content:
+        a, b = [p.strip() for p in content.split('..', 1)]
+        t.value = f'[{a}..{b}]'
+    else:
+        t.value = f'[{content}]'
+    add_to_symbol_table(t)
+    return t
+
+# >>>> t_SPECIAL_SYMBOL
+# não precisa mais colocar os símbolos de cardinalidade: "[","]","*",".."
+
 # Palavras reservadas
 def t_KEYWORD(t):
     r'\b(specializes|genset|disjoint|complete|general|specifics|where|package|import|functional-complexes|relators|intrinsic-modes|extrinsic-modes|datatype|enum|type|instanceOf|categorizer|of|relation|inverseOf)\b'
@@ -81,6 +97,10 @@ def t_KEYWORD(t):
     add_to_symbol_table(t)
     return t
 
+# >>>> t_NATIVE_DATATYPE 
+
+# >>>> META_ATTRIBUTE
+
 # Estereótipos de Classe
 def t_CLASS_STEREOTYPE(t):
     r'\b(event|situation|process|category|mixin|phaseMixin|roleMixin|historicalRoleMixin|kind|collective|quantity|quality|mode|intrisicMode|extrinsicMode|subkind|phase|role|historicalRole|relator|class)\b'
@@ -88,6 +108,16 @@ def t_CLASS_STEREOTYPE(t):
         t.type = 'CLASS_STEREOTYPE'
     add_to_symbol_table(t)
     return t
+
+# >>>> t_RELATION_STEREOTYPE
+
+# Nomes de Instâncias
+def t_INSTANCE_NAME(t):
+    r'\b[A-Za-z][A-Za-z_]*\d+\b'
+    add_to_symbol_table(t)
+    return t
+
+# >>>> t_RELATION_NAME
 
 # Nomes de Classes (também usado para Packages e GenSets)
 def t_CLASS_NAME(t):
@@ -105,12 +135,6 @@ def t_CLASS_NAME(t):
     else:
         t.type = 'CLASS_NAME'
     
-    add_to_symbol_table(t)
-    return t
-
-# Nomes de Instâncias
-def t_INSTANCE_NAME(t):
-    r'\b[A-Za-z][A-Za-z_]*\d+\b'
     add_to_symbol_table(t)
     return t
 
