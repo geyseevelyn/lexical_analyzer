@@ -6,6 +6,11 @@ tokens = [
     'RELATION_NAME','INSTANCE_NAME', 'NATIVE_DATATYPE', 'NEW_DATATYPE','META_ATTRIBUTE'
 ]
 
+# Palavras reservadas
+keywords = { 'specializes', 'genset', 'disjoint', 'complete', 'general', 'specifics', 'where',
+            'package', 'import', 'functional-complexes', 'intrinsic-modes', 'extrinsic-modes',
+            'datatype', 'enum', 'type', 'instanceOf', 'categorizer', 'of', 'relation', 'inverseOf'}
+
 # Estereótipos de classe
 class_stereotypes = { 
     'event', 'situation', 'process', 'category', 'mixin','phaseMixin', 'roleMixin', 
@@ -41,6 +46,13 @@ def add_to_error_list(token):
     })
 
 # Expressões regulares para os tokens
+def t_KEYWORDS(t):
+    r'\b(specializes|genset|disjoint|complete|general|specifics|where|package|import|functional-complexes|intrinsic-modes|extrinsic-modes|datatype|enum|type|instanceOf|categorizer|of|relation|inverseOf)\b'
+    if t.value in keywords:
+        t.type = 'KEYWORD'
+    add_to_symbol_table(t)
+    return t
+
 def t_CLASS_STEREOTYPE(t):
     r'\b(event|situation|process|category|mixin|phaseMixin|roleMixin|historicalRoleMixin|kind|collective|quantity|quality|mode|intrisicMode|extrinsicMode|subkind|phase|role|historicalRole|relator|class)\b'
     if t.value in class_stereotypes:
