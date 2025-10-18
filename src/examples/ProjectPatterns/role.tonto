@@ -1,0 +1,14 @@
+package examples.role_pattern
+
+kind Person {
+}
+
+relator Enrollment {
+}
+
+role Student specializes Person {
+
+    @mediation
+    [1] -- [1..*] Enrollment
+
+}

@@ -1,0 +1,15 @@
+package examples.phase_pattern
+
+kind Person {
+}
+
+phase Child specializes Person {
+}
+
+phase Adolescent specializes Person {
+}
+
+phase Adult specializes Person {
+}
+
+disjoint complete genset LifePhaseGS where Child, Adolescent, Adult specializes Person

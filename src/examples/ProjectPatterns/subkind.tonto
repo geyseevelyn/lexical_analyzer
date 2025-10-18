@@ -1,0 +1,12 @@
+package subkind_pattern
+
+kind Person {
+}
+
+subkind Man specializes Person {
+}
+
+subkind Woman specializes Person {
+}
+
+disjoint complete genset SexGS where Man, Woman specializes Person

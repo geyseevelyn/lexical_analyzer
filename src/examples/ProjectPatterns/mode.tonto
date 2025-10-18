@@ -1,0 +1,16 @@
+package examples.mode_pattern
+
+kind Person {
+}
+
+kind Language {
+}
+
+mode LanguageFluency {
+
+    @inherence
+    [0..*] -- [1] Person
+
+    @externalDependence
+    [0..*] -- [1] Language
+}

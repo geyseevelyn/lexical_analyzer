@@ -1,0 +1,11 @@
+package examples.collective
+
+kind Person {
+}
+
+collective Group {
+
+    @memberOf
+    [0..*] <>-- [2..*] Person
+
+}

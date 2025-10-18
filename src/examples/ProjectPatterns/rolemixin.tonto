@@ -1,0 +1,24 @@
+package examples.rolemixin_pattern
+
+relator SalesRelator {
+}
+
+roleMixin Customer {
+
+    @material
+    -- [1..*] SalesRelator
+}
+
+kind Person specializes Customer {
+}
+
+kind Organization specializes Customer {
+}
+
+disjoint complete genset CustomerKindGS where Person, Organization specializes Customer
+
+role PersonalCustomer specializes Person {
+}
+
+role CorporateCustomer specializes Organization {
+}

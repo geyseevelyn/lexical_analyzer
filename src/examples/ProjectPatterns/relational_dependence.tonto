@@ -1,0 +1,11 @@
+package examples.relational_dependence
+
+relator Enrollment {
+}
+
+role Student {
+
+    @mediation
+    [1] -- [1..*] Enrollment
+
+}

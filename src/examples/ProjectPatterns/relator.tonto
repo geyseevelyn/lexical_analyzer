@@ -1,0 +1,16 @@
+package examples.relator
+
+subkind University {
+}
+
+role Student {
+}
+
+relator Enrollment {
+
+    @mediation
+    [0..*] -- [1] University
+
+    @mediation
+    [0..*] -- [1..*] Student
+}

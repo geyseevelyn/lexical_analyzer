@@ -1,0 +1,15 @@
+package examples.category_pattern
+
+category Artifact {
+}
+
+kind Document specializes Artifact {
+}
+
+kind Model specializes Artifact {
+}
+
+kind SoftwareItem specializes Artifact {
+}
+
+disjoint genset ArtifactKindGS where Document, Model, SoftwareItem specializes Artifact
