@@ -86,3 +86,34 @@ def process_file(file_path):
         print(f"Erro ao processar o arquivo: {e}")
         return False
     return True
+
+# Função para exibir os tokens processados
+def show_tokens():
+    print("\n====================== Tokens Processados ======================\n")
+    header = f"{'Token':<25} {'Valor':<23} {'Linha':<6} {'Posição':<5}"
+    print(header)
+    print("-" * len(header))
+
+    for token in processed_tokens:
+        print(f"{token.type:<25} {str(token.value):<25} {token.lineno:<6} {token.lexpos:<5}")
+
+    if error_tokens:
+        print("\n=========================== Erros ===========================\n")
+        for error in error_tokens:
+            print(f"{error['Token']:<25} {error['Valor']:<25} {error['Linha']:<6} {error['Posição']:<5}")
+
+# Função para exibir a tabela de símbolos
+def show_symbol_table():
+    print("\n================= Tabela de Símbolos =================\n")
+    print(f"{'Token':<25} {'Valor':<30}")
+    print("-" * 55)
+    for entry in symbol_table:
+        print(f"{entry['Token']:<25} {entry['Valor']:<30}")
+
+# Função para exibir a contagem de tokens
+def show_token_count():
+    print("\n======= Contagem de Tokens =======\n")
+    print(f"{'Token':<20} {'Quantidade':<10}")
+    print("-" * 35)
+    for token, count in token_count.items():
+        print(f"{token:<25} {count:<10}")
