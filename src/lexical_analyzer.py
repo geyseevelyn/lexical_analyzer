@@ -8,9 +8,11 @@ tokens = [
 ]
 
 # Palavras reservadas
-keywords = { 'specializes', 'genset', 'disjoint', 'complete', 'general', 'specifics', 'where',
-            'package', 'import', 'functional-complexes', 'intrinsic-modes', 'extrinsic-modes',
-            'datatype', 'enum', 'type', 'instanceOf', 'categorizer', 'of', 'relation', 'inverseOf'}
+keywords = { 
+    'specializes', 'genset', 'disjoint', 'complete', 'general', 'specifics', 'where', 
+    'package', 'import', 'functional-complexes', 'relators', 'intrinsic-modes', 'extrinsic-modes', 
+    'datatype', 'enum', 'type', 'instanceOf', 'categorizer', 'of', 'relation', 'inverseOf'
+}
 
 # Estereótipos de classe
 class_stereotypes = { 
@@ -50,7 +52,7 @@ def add_to_error_list(token):
 
 # Palavras reservadas
 def t_KEYWORD(t):
-    r'\b(specializes|genset|disjoint|complete|general|specifics|where|package|import|functional-complexes|intrinsic-modes|extrinsic-modes|datatype|enum|type|instanceOf|categorizer|of|relation|inverseOf)\b'
+    r'\b(specializes|genset|disjoint|complete|general|specifics|where|package|import|functional-complexes|relators|intrinsic-modes|extrinsic-modes|datatype|enum|type|instanceOf|categorizer|of|relation|inverseOf)\b'
     if t.value in keywords:
         t.type = 'KEYWORD'
     add_to_symbol_table(t)
