@@ -69,6 +69,12 @@ def t_CLASS_NAME(t):
     add_to_symbol_table(t)
     return t
 
+# Nomes de instâncias
+def t_INSTANCE_NAME(t):
+    r'\b[A-Za-z][A-Za-z_]*\d+\b'
+    add_to_symbol_table(t)
+    return t
+
 # Atualizar contagem de linhas
 def t_newline(t):
     r'\n+'
