@@ -4,7 +4,7 @@ import ply.lex as lex
 tokens = [
     'CLASS_STEREOTYPE', 'RELATION_STEREOTYPE', 'KEYWORD', 'SPECIAL_SYMBOL', 'CLASS_NAME', 
     'RELATION_NAME','INSTANCE_NAME', 'NATIVE_DATATYPE', 'NEW_DATATYPE','META_ATTRIBUTE',
-    'ENUM_NAME'
+    'ENUM_NAME', 'PACKAGE_NAME', 'GENSET_NAME'
 ]
 
 # Palavras reservadas
@@ -21,10 +21,12 @@ class_stereotypes = {
     'extrinsicMode', 'subkind','phase', 'role', 'historicalRole', 'relator', 'class'
 }
 
+# Estruturas de dados
 symbol_table = []
 token_count = {token: 0 for token in tokens}
 processed_tokens = [] 
 error_tokens = []
+last_keyword = None  # Armazena a última palavra-chave processada
 
 # Adiciona o token à tabela de símbolos e atualiza o contador
 def add_to_symbol_table(token):
@@ -53,8 +55,10 @@ def add_to_error_list(token):
 # Palavras reservadas
 def t_KEYWORD(t):
     r'\b(specializes|genset|disjoint|complete|general|specifics|where|package|import|functional-complexes|relators|intrinsic-modes|extrinsic-modes|datatype|enum|type|instanceOf|categorizer|of|relation|inverseOf)\b'
+    global last_keyword
     if t.value in keywords:
         t.type = 'KEYWORD'
+        last_keyword = t.value  # Armazena a palavra-chave processada
     add_to_symbol_table(t)
     return t
 
@@ -70,7 +74,7 @@ def t_ENUM_NAME(t):
     add_to_symbol_table(t)
     return t
 
-# Estereótipos de classe
+# Estereótipos de Classe
 def t_CLASS_STEREOTYPE(t):
     r'\b(event|situation|process|category|mixin|phaseMixin|roleMixin|historicalRoleMixin|kind|collective|quantity|quality|mode|intrisicMode|extrinsicMode|subkind|phase|role|historicalRole|relator|class)\b'
     if t.value in class_stereotypes:
@@ -78,13 +82,26 @@ def t_CLASS_STEREOTYPE(t):
     add_to_symbol_table(t)
     return t
 
-# Nomes de classes
+# Nomes de Classes (também usado para Packages e GenSets)
 def t_CLASS_NAME(t):
     r'\b[A-Z][a-zA-Z]*(?:_[A-Z][a-zA-Z]*)*\b'
+    global last_keyword
+
+    # Verifica se é um PACKAGE_NAME
+    if last_keyword in ['package', 'import']:
+        t.type = 'PACKAGE_NAME'
+        last_keyword = None
+    # Verifica se é um GENSET_NAME
+    elif last_keyword == 'genset':
+        t.type = 'GENSET_NAME'
+        last_keyword = None
+    else:
+        t.type = 'CLASS_NAME'
+    
     add_to_symbol_table(t)
     return t
 
-# Nomes de instâncias
+# Nomes de Instâncias
 def t_INSTANCE_NAME(t):
     r'\b[A-Za-z][A-Za-z_]*\d+\b'
     add_to_symbol_table(t)
@@ -103,15 +120,16 @@ def t_error(t):
     add_to_error_list(t)
     t.lexer.skip(1)
 
-# Construção do lexer
+# Construção do Lexer
 lexer = lex.lex()
 
 # Função para processar o arquivo
 def process_file(file_path):
-    global symbol_table, token_count, processed_tokens
+    global symbol_table, token_count, processed_tokens, last_keyword
     symbol_table = []  
     token_count = {token: 0 for token in tokens}  
     processed_tokens = []  
+    last_keyword = None  # Reseta a última palavra-chave
 
     try:
         with open(file_path, 'r') as file:
