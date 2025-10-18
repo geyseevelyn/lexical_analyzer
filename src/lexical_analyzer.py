@@ -3,7 +3,8 @@ import ply.lex as lex
 # Lista de tokens
 tokens = [
     'CLASS_STEREOTYPE', 'RELATION_STEREOTYPE', 'KEYWORD', 'SPECIAL_SYMBOL', 'CLASS_NAME', 
-    'RELATION_NAME','INSTANCE_NAME', 'NATIVE_DATATYPE', 'NEW_DATATYPE','META_ATTRIBUTE'
+    'RELATION_NAME','INSTANCE_NAME', 'NATIVE_DATATYPE', 'NEW_DATATYPE','META_ATTRIBUTE',
+    'ENUM_NAME'
 ]
 
 # Palavras reservadas
@@ -52,6 +53,18 @@ def t_KEYWORD(t):
     r'\b(specializes|genset|disjoint|complete|general|specifics|where|package|import|functional-complexes|intrinsic-modes|extrinsic-modes|datatype|enum|type|instanceOf|categorizer|of|relation|inverseOf)\b'
     if t.value in keywords:
         t.type = 'KEYWORD'
+    add_to_symbol_table(t)
+    return t
+
+# Novos tipos de dados
+def t_NEW_DATATYPE(t):
+    r'\b[A-Za-z]+DataType\b'
+    add_to_symbol_table(t)
+    return t
+
+# Enumerações
+def t_ENUM_NAME(t):
+    r'\b[A-Za-z]+Enum\b'
     add_to_symbol_table(t)
     return t
 
