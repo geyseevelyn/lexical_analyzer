@@ -121,7 +121,7 @@ def t_INSTANCE_NAME(t):
 
 # Nomes de Classes (também usado para Packages e GenSets)
 def t_CLASS_NAME(t):
-    r'\b[A-Z][a-zA-Z]*(?:_[A-Z][a-zA-Z]*)*\b'
+    r'\b[A-Z][a-zA-Z]*(?:_[a-zA-Z][a-zA-Z]*)*\b'
     global last_keyword
 
     # Verifica se é um PACKAGE_NAME
