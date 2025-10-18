@@ -119,7 +119,7 @@ class TontoLexer:
 
     # Keywords Especiais (multi-palavra) — prioridade antes de t_ID
     def t_FUNCTIONAL_COMPLEXES(self, t):
-        r'functional\s+complexes'
+        r'functional(?:\s+|-)complexes'
         return t
 
     def t_ABSTRACT_INDIVIDUALS(self, t):
