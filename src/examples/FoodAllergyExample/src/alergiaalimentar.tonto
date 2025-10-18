@@ -1,60 +1,60 @@
-import alergiaalimentar
+import AlergiaAlimentar
 
-package alergiaalimentar
+package AlergiaAlimentar
 
 kind Paciente
 
 kind Alimento
 
-subkind Proteina of functional-complexes  specializes Componente_Alimentar 
+subkind Proteina of functional-complexes specializes Componente_Alimentar 
 
-phase Crianca of functional-complexes  specializes Paciente 
+phase Crianca of functional-complexes specializes Paciente 
 
-phase Adulto of functional-complexes  specializes Paciente 
+phase Adulto of functional-complexes specializes Paciente 
 
-subkind Aditivo_Alimentar of functional-complexes  specializes Componente_Alimentar 
+subkind Aditivo_Alimentar of functional-complexes specializes Componente_Alimentar 
 
-subkind Carboidrato of functional-complexes  specializes Componente_Alimentar 
+subkind Carboidrato of functional-complexes specializes Componente_Alimentar 
 
-subkind Imuno_Mediada of relators  specializes Alergia 
+subkind Imuno_Mediada of relators specializes Alergia 
 
-subkind Nao_Imuno_Mediada of relators  specializes Alergia 
+subkind Nao_Imuno_Mediada of relators specializes Alergia 
 
 mode Sintoma
 
-subkind Cutaneo of intrinsic-modes  specializes Sintoma 
+subkind Cutaneo of intrinsic-modes specializes Sintoma 
 
 subkind Gastrointestinal of intrinsic-modes  specializes Sintoma 
 
-subkind Respiratorio of intrinsic-modes  specializes Sintoma 
+subkind Respiratorio of intrinsic-modes specializes Sintoma 
 
-subkind Sistemico of intrinsic-modes  specializes Sintoma 
+subkind Sistemico of intrinsic-modes specializes Sintoma 
 
-role Alergeno of functional-complexes  specializes Componente_Alimentar 
+role Alergeno of functional-complexes specializes Componente_Alimentar 
 
 relator Tratamento
 
 relator Diagnostico
 
-subkind Mista of relators  specializes Alergia 
+subkind Mista of relators specializes Alergia 
 
 kind Profissional_de_Saude
 
-subkind Ingrediente of functional-complexes  specializes Alimento 
+subkind Ingrediente of functional-complexes specializes Alimento
 
-subkind Formula of functional-complexes  specializes Alimento 
+subkind Formula of functional-complexes specializes Alimento
 
-subkind Teste_de_Dosagem_IgE_Serica of functional-complexes  specializes Procedimento 
+subkind Teste_de_Dosagem_IgE_Serica of functional-complexes specializes Procedimento
 
-subkind Teste_de_Provocacao_Oral of functional-complexes  specializes Procedimento 
+subkind Teste_de_Provocacao_Oral of functional-complexes specializes Procedimento
 
 kind Procedimento
 
-subkind Dieta_de_Exclusao of relators  specializes Tratamento 
+subkind Dieta_de_Exclusao of relators specializes Tratamento
 
-subkind Medicamento of relators  specializes Tratamento 
+subkind Medicamento of relators specializes Tratamento
 
-subkind Imunoterapia_Oral of relators  specializes Tratamento 
+subkind Imunoterapia_Oral of relators specializes Tratamento
 
 quality Comobidarde_Alergica
 
@@ -70,7 +70,7 @@ kind Componente_Alimentar
 
 event Consumo_Alimentar
 
-subkind Teste_Cutaneo of functional-complexes  specializes Procedimento 
+subkind Teste_Cutaneo of functional-complexes specializes Procedimento
 
 mode Disposicao_Alergica
 
