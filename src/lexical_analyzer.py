@@ -63,3 +63,26 @@ def t_error(t):
 
 # Construção do lexer
 lexer = lex.lex()
+
+# Função para processar o arquivo
+def process_file(file_path):
+    global symbol_table, token_count, processed_tokens
+    symbol_table = []  
+    token_count = {token: 0 for token in tokens}  
+    processed_tokens = []  
+
+    try:
+        with open(file_path, 'r') as file:
+            data = file.read()
+            lexer.input(data)
+
+            # Processa os tokens
+            while lexer.token():
+                pass  # Apenas preenche os dados na tabela e contador
+    except FileNotFoundError:
+        print(f"Arquivo {file_path} não encontrado.")
+        return False
+    except Exception as e:
+        print(f"Erro ao processar o arquivo: {e}")
+        return False
+    return True
