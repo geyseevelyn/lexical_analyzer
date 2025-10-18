@@ -2,16 +2,15 @@ import ply.lex as lex
 
 # Lista de tokens
 tokens = [
-    'CLASS_STEREOTYPE', 'RELATION_STEREOTYPE', 'KEYWORDS', 'SPECIAL_SYMBOL', 
-    'CLASS_NAME', 'RELATION_NAME', 'INSTANCE_NAME', 'NATIVE_DATATYPE', 'NEW_DATATYPE',
-    'META_ATTRIBUTE'
+    'CLASS_STEREOTYPE', 'RELATION_STEREOTYPE', 'KEYWORDS', 'SPECIAL_SYMBOL', 'CLASS_NAME', 
+    'RELATION_NAME','INSTANCE_NAME', 'NATIVE_DATATYPE', 'NEW_DATATYPE','META_ATTRIBUTE'
 ]
+
 # Estereótipos de classe
 class_stereotypes = { 
-    'event', 'situation', 'process', 'category', 'mixin',
-    'phaseMixin', 'roleMixin', 'historicalRoleMixin', 'kind', 'collective',
-    'quantity', 'quality', 'mode', 'intrisicMode', 'extrinsicMode', 'subkind',
-    'phase', 'role', 'historicalRole'
+    'event', 'situation', 'process', 'category', 'mixin','phaseMixin', 'roleMixin', 
+    'historicalRoleMixin', 'kind', 'collective','quantity', 'quality', 'mode', 'intrisicMode', 
+    'extrinsicMode', 'subkind','phase', 'role', 'historicalRole', 'relator', 'class'
 }
 
 symbol_table = []
@@ -43,8 +42,24 @@ def add_to_error_list(token):
 
 # Expressões regulares para os tokens
 def t_CLASS_STEREOTYPE(t):
-    r'\b(event|situation|process|category|mixin|phaseMixin|roleMixin|historicalRoleMixin|kind|collective|quantity|quality|mode|intrisicMode|extrinsicMode|subkind|phase|role|historicalRole)\b'
+    r'\b(event|situation|process|category|mixin|phaseMixin|roleMixin|historicalRoleMixin|kind|collective|quantity|quality|mode|intrisicMode|extrinsicMode|subkind|phase|role|historicalRole|relator|class)\b'
     if t.value in class_stereotypes:
         t.type = 'CLASS_STEREOTYPE'
     add_to_symbol_table(t)
     return t
+
+# Atualizar contagem de linhas
+def t_newline(t):
+    r'\n+'
+    t.lexer.lineno += len(t.value)
+
+# Ignorar espaços e tabulações
+t_ignore = ' \t'
+
+# Tratamento de erros
+def t_error(t):
+    add_to_error_list(t)
+    t.lexer.skip(1)
+
+# Construção do lexer
+lexer = lex.lex()
