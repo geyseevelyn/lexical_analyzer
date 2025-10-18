@@ -198,15 +198,19 @@ lexer = lex.lex()
 
 # Função para processar o arquivo
 def process_file(file_path):
-    global symbol_table, token_count, processed_tokens, last_keyword
-    symbol_table = []  
-    token_count = {token: 0 for token in tokens}  
-    processed_tokens = []  
+    global symbol_table, token_count, processed_tokens, error_tokens, last_keyword
+    # Limpa completamente o contexto anterior
+    symbol_table = []
+    token_count = {token: 0 for token in tokens}
+    processed_tokens = []
+    error_tokens = []
     last_keyword = None  # Reseta a última palavra-chave
 
     try:
         with open(file_path, 'r') as file:
             data = file.read()
+            # Reinicia contagem de linhas do lexer
+            lexer.lineno = 1
             lexer.input(data)
 
             # Processa os tokens
@@ -222,7 +226,7 @@ def process_file(file_path):
 
 # Função para exibir os tokens processados
 def show_tokens():
-    print("\n====================== Tokens Processados ======================\n")
+    print("\n====================== Tokens Processados =======================\n")
     header = f"{'Token':<20} {'Valor':<30} {'Linha':<6} {'Posição':<5}"
     print(header)
     print("-" * len(header))
@@ -231,7 +235,11 @@ def show_tokens():
         print(f"{token.type:<20} {str(token.value):<30} {token.lineno:<6} {token.lexpos:<5}")
 
     if error_tokens:
-        print("\n=========================== Erros ===========================\n")
+        header = f"{'Token':<20} {'Valor':<30} {'Linha':<6} {'Posição':<5}"
+
+        print("\n=========================== Erros ===============================\n")
+        print(header)
+        print("-" * len(header))
         for error in error_tokens:
             print(f"{error['Token']:<20} {error['Valor']:<30} {error['Linha']:<6} {error['Posição']:<5}")
 
