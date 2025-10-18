@@ -4,7 +4,7 @@ import ply.lex as lex
 tokens = [
     'CLASS_STEREOTYPE', 'RELATION_STEREOTYPE', 'KEYWORD', 'SPECIAL_SYMBOL', 'CLASS_NAME', 
     'RELATION_NAME','INSTANCE_NAME', 'NATIVE_DATATYPE', 'NEW_DATATYPE','META_ATTRIBUTE',
-    'ENUM_NAME', 'PACKAGE_NAME', 'GENSET_NAME'
+    'ENUM_NAME', 'PACKAGE_NAME', 'GENSET_NAME', 'ATTRIBUTE'
 ]
 
 # Palavras reservadas
@@ -52,13 +52,10 @@ def add_to_error_list(token):
 
 # Expressões regulares para os tokens
 
-# Palavras reservadas
-def t_KEYWORD(t):
-    r'\b(specializes|genset|disjoint|complete|general|specifics|where|package|import|functional-complexes|relators|intrinsic-modes|extrinsic-modes|datatype|enum|type|instanceOf|categorizer|of|relation|inverseOf)\b'
-    global last_keyword
-    if t.value in keywords:
-        t.type = 'KEYWORD'
-        last_keyword = t.value  # Armazena a palavra-chave processada
+# Atributos de Classes e DataTypes
+def t_ATTRIBUTE(t):
+    r'\b[a-z][a-zA-Z]*:'
+    t.value = t.value[:-1]  
     add_to_symbol_table(t)
     return t
 
@@ -71,6 +68,16 @@ def t_NEW_DATATYPE(t):
 # Enumerações
 def t_ENUM_NAME(t):
     r'\b[A-Za-z]+Enum\b'
+    add_to_symbol_table(t)
+    return t
+
+# Palavras reservadas
+def t_KEYWORD(t):
+    r'\b(specializes|genset|disjoint|complete|general|specifics|where|package|import|functional-complexes|relators|intrinsic-modes|extrinsic-modes|datatype|enum|type|instanceOf|categorizer|of|relation|inverseOf)\b'
+    global last_keyword
+    if t.value in keywords:
+        t.type = 'KEYWORD'
+        last_keyword = t.value  # Armazena a palavra-chave processada
     add_to_symbol_table(t)
     return t
 
