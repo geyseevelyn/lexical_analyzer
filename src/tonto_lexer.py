@@ -29,7 +29,8 @@ tokens = [
     'COMMA', 'DOT', 'COLON', 'AT', 'STAR',
 
     # Símbolos multi-caractere
-    'ARROW', 'AGGREGATION_OP', 'DOTDOT'
+    # Observação: regras mais longas devem vir antes de ARROW ("--")
+    'COMPOSITION_OP', 'AGGREGATION_OP', 'ARROW', 'DOTDOT'
 ]
 
 # Palavras reservadas (constante)
@@ -98,7 +99,11 @@ class TontoLexer:
     t_ignore_SL_COMMENT = r'\/\/[^^\n\r]*'
 
     # Símbolos simples (definidos como strings)
-    t_AGGREGATION_OP = r'<>--'
+    # Composição: reconhece tanto "<o>--" quanto "--<o>"
+    t_COMPOSITION_OP = r'(?:<o>--|--<o>)'
+    # Agregação: reconhece tanto "<>--" quanto "--<>"
+    t_AGGREGATION_OP = r'(?:<>--|--<>)'
+    # Associação simples
     t_ARROW = r'--'
     t_DOTDOT = r'\.\.'
     t_LPAREN = r'\('
