@@ -86,6 +86,14 @@ def t_CARDINALITY(t):
 
 # >>>> t_SPECIAL_SYMBOL
 # não precisa mais colocar os símbolos de cardinalidade: "[","]","*",".."
+# Símbolos especiais restantes: “{“, “}”, “(“, “)”, “<>--” , “--<>”, “@”, “:”.
+# Observação: o caractere ":" também é usado em atributos, mas lá é consumido por t_ATTRIBUTE.
+# Aqui tratamos apenas ocorrências de ':' que não façam parte de um atributo.
+
+def t_SPECIAL_SYMBOL(t):
+    r'(\{|\}|\(|\)|<>--|--<>|--|--<o>|<o>--|@|:|,|\.)'
+    add_to_symbol_table(t)
+    return t
 
 # Palavras reservadas
 def t_KEYWORD(t):
@@ -98,8 +106,20 @@ def t_KEYWORD(t):
     return t
 
 # >>>> t_NATIVE_DATATYPE 
+# Tipos de dados nativos: number, string, boolean, date, time, datetime
+
+def t_NATIVE_DATATYPE(t):
+    r'\b(number|string|boolean|date|time|datetime)\b'
+    add_to_symbol_table(t)
+    return t
 
 # >>>> META_ATTRIBUTE
+# Meta-atributos: ordered, const, derived, subsets, redefines
+
+def t_META_ATTRIBUTE(t):
+    r'\b(ordered|const|derived|subsets|redefines)\b'
+    add_to_symbol_table(t)
+    return t
 
 # Estereótipos de Classe
 def t_CLASS_STEREOTYPE(t):
@@ -110,6 +130,12 @@ def t_CLASS_STEREOTYPE(t):
     return t
 
 # >>>> t_RELATION_STEREOTYPE
+# Estereótipos de relações
+
+def t_RELATION_STEREOTYPE(t):
+    r'\b(material|derivation|comparative|mediation|characterization|externalDependence|subCollectionOf|subQualityOf|componentOf|instantiation|memberOf|termination|participational|participation|historicalDependence|creation|manifestation|bringsAbout|triggers|composition|aggregation|inherence|value|formal|constitution)\b'
+    add_to_symbol_table(t)
+    return t
 
 # Nomes de Instâncias
 def t_INSTANCE_NAME(t):
@@ -118,6 +144,12 @@ def t_INSTANCE_NAME(t):
     return t
 
 # >>>> t_RELATION_NAME
+# Convenção para nomes de relações: começando com letra minúscula, seguida por letras; pode conter sublinhados como subcadeia própria; sem números.
+
+def t_RELATION_NAME(t):
+    r'\b[a-z][a-zA-Z]*(?:_[a-zA-Z]+)*\b'
+    add_to_symbol_table(t)
+    return t
 
 # Nomes de Classes (também usado para Packages e GenSets)
 def t_CLASS_NAME(t):
@@ -209,29 +241,3 @@ def show_token_count():
     for token, count in token_count.items():
         print(f"{token:<25} {count:<10}")
 
-# Menu interativo
-def menu():
-    while True:
-        print("\n====== MENU DE OPÇÕES ======")
-        print("1. Exibir Tokens Processados")
-        print("2. Exibir Tabela de Símbolos")
-        print("3. Exibir Contagem de Tokens")
-        print("4. Sair")
-        choice = input("Escolha uma opção: ")
-
-        if choice == '1':
-            show_tokens()
-        elif choice == '2':
-            show_symbol_table()
-        elif choice == '3':
-            show_token_count()
-        elif choice == '4':
-            print("Saindo...")
-            break
-        else:
-            print("Opção inválida. Tente novamente.")
-
-# Caminho do arquivo de entrada
-file_path = input("Digite o caminho do arquivo: ")
-if process_file(file_path):
-    menu()
