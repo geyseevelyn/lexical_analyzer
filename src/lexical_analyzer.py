@@ -2,7 +2,7 @@ import ply.lex as lex
 
 # Lista de tokens
 tokens = [
-    'CLASS_STEREOTYPE', 'RELATION_STEREOTYPE', 'KEYWORDS', 'SPECIAL_SYMBOL', 'CLASS_NAME', 
+    'CLASS_STEREOTYPE', 'RELATION_STEREOTYPE', 'KEYWORD', 'SPECIAL_SYMBOL', 'CLASS_NAME', 
     'RELATION_NAME','INSTANCE_NAME', 'NATIVE_DATATYPE', 'NEW_DATATYPE','META_ATTRIBUTE'
 ]
 
@@ -46,17 +46,26 @@ def add_to_error_list(token):
     })
 
 # Expressões regulares para os tokens
-def t_KEYWORDS(t):
+
+# Palavras reservadas
+def t_KEYWORD(t):
     r'\b(specializes|genset|disjoint|complete|general|specifics|where|package|import|functional-complexes|intrinsic-modes|extrinsic-modes|datatype|enum|type|instanceOf|categorizer|of|relation|inverseOf)\b'
     if t.value in keywords:
         t.type = 'KEYWORD'
     add_to_symbol_table(t)
     return t
 
+# Estereótipos de classe
 def t_CLASS_STEREOTYPE(t):
     r'\b(event|situation|process|category|mixin|phaseMixin|roleMixin|historicalRoleMixin|kind|collective|quantity|quality|mode|intrisicMode|extrinsicMode|subkind|phase|role|historicalRole|relator|class)\b'
     if t.value in class_stereotypes:
         t.type = 'CLASS_STEREOTYPE'
+    add_to_symbol_table(t)
+    return t
+
+# Nomes de classes
+def t_CLASS_NAME(t):
+    r'\b[A-Z][a-zA-Z]*(?:_[A-Z][a-zA-Z]*)*\b'
     add_to_symbol_table(t)
     return t
 
