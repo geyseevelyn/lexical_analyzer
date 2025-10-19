@@ -1,4 +1,4 @@
-# Analisador Léxico para a linguagem TONTO
+# Analisador Léxico para a Linguagem TONTO
 
 Este projeto implementa um **analisador léxico** para a linguagem [*TONTO*](https://matheuslenke.github.io/tonto-docs/docs/intro), utilizando **Python** e a biblioteca **PLY (Python Lex-Yacc)**. O objetivo é reconhecer e classificar os elementos dessa linguagem, produzindo uma tabela de símbolos e uma contagem de *tokens* como saída.
 
@@ -10,15 +10,15 @@ Este projeto implementa um **analisador léxico** para a linguagem [*TONTO*](htt
    * [Sobre o Projeto](#-sobre-o-projeto)
    * [Tecnologias Utilizadas](#-tecnologias-utilizadas)
    * [Funcionalidades](#-funcionalidades)
-   * [Especificação dos Tokens](#-especificação-dos-tokens-reconhecidos)
+   * [Especificação dos Tokens](#-especificação-dos-tokens)
    * [Como Usar](#-como-usar)
-   * [Autores](#-autores)
+   * [Autores](#%E2%80%8D-autores)
    * [Licença](#-licença)
 <!--te-->
 
 ---
 
-## 📖 A Linguagem TONTO
+## 🧩 A Linguagem TONTO
 
 A **TONTO** (*Textual Ontology Language*) é uma linguagem textual para modelagem de ontologias, desenvolvida por **Matheus Lenke Coutinho**. Criada com o objetivo de superar limitações das linguagens de modelagem puramente visuais, ela permite a **edição**, **validação** e **versionamento** de ontologias por meio de **código textual** e também a **conversão** para outros para outros formatos como:
 
@@ -26,7 +26,7 @@ A **TONTO** (*Textual Ontology Language*) é uma linguagem textual para modelage
 - *gUFO (OWL)*
 - *JSON*
 
-També,m possui extensão para o **VSCode**, permitindo criar módulos `.tonto`, gerenciar dependências com o **Tonto Package Manager** e gerar modelos interoperáveis com o **Protégé** e o **Visual Paradigm**.
+Também possui extensão para o **VSCode**, permitindo criar módulos `.tonto`, gerenciar dependências com o **Tonto Package Manager** e gerar modelos interoperáveis com o **Protégé** e o **Visual Paradigm**.
 
 💡 Para mais informações sobre a lingaugem, consulte a [documentação oficial](https://matheuslenke.github.io/tonto-docs/docs/intro), a [monografia completa](https://matheuslenke.github.io/tonto-docs/pdf/Tonto.pdf) e o [repositório oficial no GitHub](https://github.com/matheuslenke/Tonto).
 
@@ -34,7 +34,7 @@ També,m possui extensão para o **VSCode**, permitindo criar módulos `.tonto`,
 
 ## 📖 Sobre o Projeto
 
-O **Analisador Léxico para a linguagem TONTO** foi desenvolvido como parte de um estudo prático sobre a construção de compiladores e ferramentas de análise léxica. O projeto tem como objetivo o reconhecimento e categorização dos seguintes elementos da linguagem **TONTO**:
+O **Analisador Léxico para a linguagem TONTO** foi desenvolvido como parte de um estudo prático sobre a construção de compiladores e ferramentas de análise léxica. O projeto tem como objetivo o reconhecimento e categorização dos seguintes elementos da linguagem:
 
 - **Palavras reservadas**;
 - **Estereótipos de classe**;
