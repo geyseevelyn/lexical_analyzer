@@ -1,3 +1,4 @@
+
 # Analisador Léxico para a Linguagem TONTO
 
 Este projeto implementa um **analisador léxico** para a linguagem [*TONTO*](https://matheuslenke.github.io/tonto-docs/docs/intro), utilizando **Python** e a biblioteca **PLY (Python Lex-Yacc)**. O objetivo é reconhecer e classificar os elementos dessa linguagem, produzindo uma tabela de símbolos e uma contagem de *tokens* como saída.
@@ -26,7 +27,7 @@ A **TONTO** (*Textual Ontology Language*) é uma linguagem textual para modelage
 - *gUFO (OWL)*
 - *JSON*
 
-Também possui extensão para o **VSCode**, permitindo criar módulos `.tonto`, gerenciar dependências com o **Tonto Package Manager** e gerar modelos interoperáveis com o **Protégé** e o **Visual Paradigm**.
+Também possui extensão para o *VSCode*, permitindo criar módulos `.tonto`, gerenciar dependências com o *Tonto Package Manager* e gerar modelos interoperáveis com o *Protégé* e o *Visual Paradigm*.
 
 💡 Para mais informações sobre a lingaugem, consulte a [documentação oficial](https://matheuslenke.github.io/tonto-docs/docs/intro), a [monografia completa](https://matheuslenke.github.io/tonto-docs/pdf/Tonto.pdf) e o [repositório oficial no GitHub](https://github.com/matheuslenke/Tonto).
 
@@ -34,7 +35,7 @@ Também possui extensão para o **VSCode**, permitindo criar módulos `.tonto`, 
 
 ## 📖 Sobre o Projeto
 
-O **Analisador Léxico para a linguagem TONTO** foi desenvolvido como parte de um estudo prático sobre a construção de compiladores e ferramentas de análise léxica. O projeto tem como objetivo o reconhecimento e categorização dos seguintes elementos da linguagem:
+O **Analisador Léxico para a Linguagem TONTO** foi desenvolvido como parte de um estudo prático sobre a construção de compiladores e ferramentas de análise léxica. O projeto tem como objetivo o reconhecimento e categorização dos seguintes elementos da linguagem:
 
 - **Palavras reservadas**;
 - **Estereótipos de classe**;
@@ -47,7 +48,7 @@ O **Analisador Léxico para a linguagem TONTO** foi desenvolvido como parte de u
 - **Meta-atributos**;
 - **Símbolos especias**.
 
-Além desses elementos previamente especificados na descrição do trabalho, o analisador léxico **também reconhece**:
+Além desses elementos previamente especificados na descrição do trabalho, o analisador léxico reconhece:
 
 - **Nomes de pacotes**;
 - ***Generalization sets (gensets)***;
@@ -55,7 +56,7 @@ Além desses elementos previamente especificados na descrição do trabalho, o a
 - **Enumerações**;
 - **Cardinalidades**.
 
-O resultado consiste em **relatórios detalhados** sobre os *tokens* encontrados, permitindo uma base sólida para **análise sintática** ou **semântica** posterior.
+O resultado consiste em **relatórios detalhados** sobre os *tokens* encontrados, permitindo uma base sólida para análise sintática ou semântica posterior.
 
 ---
 
@@ -152,6 +153,30 @@ A **especificação detalhada** dos *tokens* da linguagem **TONTO** reconhecidos
 2. Execute o programa (`python src\main.py`).
 3. Escolha a **Opção 1** e cole o caminho completo do arquivo, por exemplo:
    - `C:\Users\seu_usuario\Documents\meu_arquivo.tonto`
+
+---
+
+## 💻 Exemplos
+
+### Entrada
+
+```
+package CarOwnership 
+
+kind Organization
+subkind CarAgency specializes Organization
+kind Car
+
+relator CarOwnership {
+    @mediation
+    -- involvesOwner -- [1] CarAgency
+
+    @mediation
+    -- involvesProperty -- [1] Car
+}
+```
+
+### Saída Esperada
 
 ---
 
