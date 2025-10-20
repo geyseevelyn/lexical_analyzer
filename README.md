@@ -175,89 +175,97 @@ relator CarOwnership {
     -- involvesProperty -- [1] Car
 }
 ```
-
 ### Saída Esperada
 
+- **Tokens Processados** (*Opção 1* do menu):
 
-- Tokens Processados (*Opção 1* do menu)
+  <details>
+  <summary>Clique para expandir</summary>
 
-| **Token**           | **Valor**        | **Linha** | **Posição** |
-| ------------------- | ---------------- | --------- | ----------- |
-| KEYWORD             | package          | 1         | 0           |
-| PACKAGE_NAME        | CarOwnership     | 1         | 8           |
-| CLASS_STEREOTYPE    | kind             | 3         | 23          |
-| CLASS_NAME          | Organization     | 3         | 28          |
-| CLASS_STEREOTYPE    | subkind          | 4         | 41          |
-| CLASS_NAME          | CarAgency        | 4         | 49          |
-| KEYWORD             | specializes      | 4         | 59          |
-| CLASS_NAME          | Organization     | 4         | 71          |
-| CLASS_STEREOTYPE    | kind             | 5         | 84          |
-| CLASS_NAME          | Car              | 5         | 89          |
-| CLASS_STEREOTYPE    | relator          | 7         | 94          |
-| CLASS_NAME          | CarOwnership     | 7         | 102         |
-| SPECIAL_SYMBOL      | {                | 7         | 115         |
-| SPECIAL_SYMBOL      | @                | 8         | 121         |
-| RELATION_STEREOTYPE | mediation        | 8         | 122         |
-| SPECIAL_SYMBOL      | --               | 9         | 136         |
-| RELATION_NAME       | involvesOwner    | 9         | 139         |
-| SPECIAL_SYMBOL      | --               | 9         | 153         |
-| CARDINALITY         | [1]              | 9         | 156         |
-| CLASS_NAME          | CarAgency        | 9         | 160         |
-| SPECIAL_SYMBOL      | @                | 11        | 175         |
-| RELATION_STEREOTYPE | mediation        | 11        | 176         |
-| SPECIAL_SYMBOL      | --               | 12        | 190         |
-| RELATION_NAME       | involvesProperty | 12        | 193         |
-| SPECIAL_SYMBOL      | --               | 12        | 210         |
-| CARDINALITY         | [1]              | 12        | 213         |
-| CLASS_NAME          | Car              | 12        | 217         |
-| SPECIAL_SYMBOL      | }                | 13        | 221         |
+  | **Token**           | **Valor**        | **Linha** | **Posição** |
+  | ------------------- | ---------------- | --------- | ----------- |
+  | KEYWORD             | package          | 1         | 0           |
+  | PACKAGE_NAME        | CarOwnership     | 1         | 8           |
+  | CLASS_STEREOTYPE    | kind             | 3         | 23          |
+  | CLASS_NAME          | Organization     | 3         | 28          |
+  | CLASS_STEREOTYPE    | subkind          | 4         | 41          |
+  | CLASS_NAME          | CarAgency        | 4         | 49          |
+  | KEYWORD             | specializes      | 4         | 59          |
+  | CLASS_NAME          | Organization     | 4         | 71          |
+  | CLASS_STEREOTYPE    | kind             | 5         | 84          |
+  | CLASS_NAME          | Car              | 5         | 89          |
+  | CLASS_STEREOTYPE    | relator          | 7         | 94          |
+  | CLASS_NAME          | CarOwnership     | 7         | 102         |
+  | SPECIAL_SYMBOL      | {                | 7         | 115         |
+  | SPECIAL_SYMBOL      | @                | 8         | 121         |
+  | RELATION_STEREOTYPE | mediation        | 8         | 122         |
+  | SPECIAL_SYMBOL      | --               | 9         | 136         |
+  | RELATION_NAME       | involvesOwner    | 9         | 139         |
+  | SPECIAL_SYMBOL      | --               | 9         | 153         |
+  | CARDINALITY         | [1]              | 9         | 156         |
+  | CLASS_NAME          | CarAgency        | 9         | 160         |
+  | SPECIAL_SYMBOL      | @                | 11        | 175         |
+  | RELATION_STEREOTYPE | mediation        | 11        | 176         |
+  | SPECIAL_SYMBOL      | --               | 12        | 190         |
+  | RELATION_NAME       | involvesProperty | 12        | 193         |
+  | SPECIAL_SYMBOL      | --               | 12        | 210         |
+  | CARDINALITY         | [1]              | 12        | 213         |
+  | CLASS_NAME          | Car              | 12        | 217         |
+  | SPECIAL_SYMBOL      | }                | 13        | 221         |
 
+  </details>
 
-<br>
+- **Tabela de Símbolos** (*Opção 2* do menu):
 
-- Tabela de Símbolos (*Opção 2* do menu)
+  <details>
+  <summary>Clique para expandir</summary>
 
-| **Token**            | **Valor**        |
-| -------------------  | ---------------- |
-| KEYWORD              | package          |
-| PACKAGE_NAME         | CarOwnership     |
-| CLASS_STEREOTYPE     | kind             |
-| CLASS_NAME           | Organization     |
-| CLASS_STEREOTYPE     | subkind          |
-| CLASS_NAME           | CarAgency        |
-| KEYWORD              | specializes      |
-| CLASS_NAME           | Car              |
-| CLASS_STEREOTYPE     | relator          |
-| SPECIAL_SYMBOL       | {                |
-| SPECIAL_SYMBOL       | @                |
-| RELATION_STEREOTYPE  | mediation        |
-| SPECIAL_SYMBOL       | --               |
-| RELATION_NAME        | involvesOwner    |
-| CARDINALITY          | [1]              |
-| RELATION_NAME        | involvesProperty |
-| SPECIAL_SYMBOL       | }                |
+  | **Token**            | **Valor**        |
+  | -------------------  | ---------------- |
+  | KEYWORD              | package          |
+  | PACKAGE_NAME         | CarOwnership     |
+  | CLASS_STEREOTYPE     | kind             |
+  | CLASS_NAME           | Organization     |
+  | CLASS_STEREOTYPE     | subkind          |
+  | CLASS_NAME           | CarAgency        |
+  | KEYWORD              | specializes      |
+  | CLASS_NAME           | Car              |
+  | CLASS_STEREOTYPE     | relator          |
+  | SPECIAL_SYMBOL       | {                |
+  | SPECIAL_SYMBOL       | @                |
+  | RELATION_STEREOTYPE  | mediation        |
+  | SPECIAL_SYMBOL       | --               |
+  | RELATION_NAME        | involvesOwner    |
+  | CARDINALITY          | [1]              |
+  | RELATION_NAME        | involvesProperty |
+  | SPECIAL_SYMBOL       | }                |
 
-<br>
+  </details> 
 
-- Contagem de Tokens (*Opção 3* do menu)
+- **Contagem de Tokens** (*Opção 3* do menu):
 
-| **Token**           | **Quantidade** |
-| ------------------- | -------------- |
-| CLASS_STEREOTYPE    | 4              |
-| RELATION_STEREOTYPE | 2              |
-| KEYWORD             | 2              |
-| SPECIAL_SYMBOL      | 8              |
-| CLASS_NAME          | 7              |
-| RELATION_NAME       | 2              |
-| INSTANCE_NAME       | 0              |
-| NATIVE_DATATYPE     | 0              |
-| NEW_DATATYPE        | 0              |
-| META_ATTRIBUTE      | 0              |
-| ENUM_NAME           | 0              |
-| PACKAGE_NAME        | 1              |
-| GENSET_NAME         | 0              |
-| ATTRIBUTE           | 0              |
-| CARDINALITY         | 2              |
+  <details>
+  <summary>Clique para expandir</summary>
+
+  | **Token**           | **Quantidade** |
+  | ------------------- | -------------- |
+  | CLASS_STEREOTYPE    | 4              |
+  | RELATION_STEREOTYPE | 2              |
+  | KEYWORD             | 2              |
+  | SPECIAL_SYMBOL      | 8              |
+  | CLASS_NAME          | 7              |
+  | RELATION_NAME       | 2              |
+  | INSTANCE_NAME       | 0              |
+  | NATIVE_DATATYPE     | 0              |
+  | NEW_DATATYPE        | 0              |
+  | META_ATTRIBUTE      | 0              |
+  | ENUM_NAME           | 0              |
+  | PACKAGE_NAME        | 1              |
+  | GENSET_NAME         | 0              |
+  | ATTRIBUTE           | 0              |
+  | CARDINALITY         | 2              |
+
+  </details>
 
 ---
 
