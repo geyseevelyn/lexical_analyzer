@@ -94,12 +94,9 @@ def t_CARDINALITY(t):
     add_to_symbol_table(t)
     return t
 
-# >>>> t_SPECIAL_SYMBOL
-# não precisa mais colocar os símbolos de cardinalidade: "[","]","*",".."
-# Símbolos especiais restantes: “{“, “}”, “(“, “)”, “<>--” , “--<>”, “@”, “:”.
+# Símbolos especiais restantes
 # Observação: o caractere ":" também é usado em atributos, mas lá é consumido por t_ATTRIBUTE.
 # Aqui tratamos apenas ocorrências de ':' que não façam parte de um atributo.
-
 def t_SPECIAL_SYMBOL(t):
     r'(\{|\}|\(|\)|<>--|--<>|--|--<o>|<o>--|@|:|,|\.)'
     add_to_symbol_table(t)
@@ -115,17 +112,13 @@ def t_KEYWORD(t):
     add_to_symbol_table(t)
     return t
 
-# >>>> t_NATIVE_DATATYPE 
 # Tipos de dados nativos: number, string, boolean, date, time, datetime
-
 def t_NATIVE_DATATYPE(t):
     r'\b(number|string|boolean|date|time|datetime)\b'
     add_to_symbol_table(t)
     return t
 
-# >>>> META_ATTRIBUTE
 # Meta-atributos: ordered, const, derived, subsets, redefines
-
 def t_META_ATTRIBUTE(t):
     r'\b(ordered|const|derived|subsets|redefines)\b'
     add_to_symbol_table(t)
@@ -139,9 +132,7 @@ def t_CLASS_STEREOTYPE(t):
     add_to_symbol_table(t)
     return t
 
-# >>>> t_RELATION_STEREOTYPE
 # Estereótipos de relações
-
 def t_RELATION_STEREOTYPE(t):
     r'\b(material|derivation|comparative|mediation|characterization|externalDependence|subCollectionOf|subQualityOf|componentOf|instantiation|memberOf|termination|participational|participation|historicalDependence|creation|manifestation|bringsAbout|triggers|composition|aggregation|inherence|value|formal|constitution)\b'
     add_to_symbol_table(t)
@@ -153,15 +144,13 @@ def t_INSTANCE_NAME(t):
     add_to_symbol_table(t)
     return t
 
-# >>>> t_RELATION_NAME
-# Convenção para nomes de relações: começando com letra minúscula, seguida por letras; pode conter sublinhados como subcadeia própria; sem números.
-
+# Convenção para nomes de relações
 def t_RELATION_NAME(t):
     r'\b[a-z][a-zA-Z]*(?:_[a-zA-Z]+)*\b'
     add_to_symbol_table(t)
     return t
 
-# Nomes de Classes (também usado para Packages e GenSets)
+# Convenção para nomes de Classes (também usado para Packages e GenSets)
 def t_CLASS_NAME(t):
     r'\b[A-Z][a-zA-Z]*(?:_[a-zA-Z][a-zA-Z]*)*\b'
     global last_keyword
@@ -227,15 +216,15 @@ def process_file(file_path):
 # Função para exibir os tokens processados
 def show_tokens():
     print("\n====================== Tokens Processados =======================\n")
-    header = f"{'Token':<20} {'Valor':<30} {'Linha':<6} {'Posição':<5}"
+    header = f"{'Token':<20} {'Valor':<28} {'Linha':<6} {'Posição':<5}"
     print(header)
     print("-" * len(header))
 
     for token in processed_tokens:
-        print(f"{token.type:<20} {str(token.value):<30} {token.lineno:<6} {token.lexpos:<5}")
+        print(f"{token.type:<20} {str(token.value):<30} {token.lineno:<6} {token.lexpos:<6}")
 
     if error_tokens:
-        header = f"{'Token':<20} {'Valor':<30} {'Linha':<6} {'Posição':<5}"
+        header = f"{'Token':<20} {'Valor':<28} {'Linha':<6} {'Posição':<5}"
 
         print("\n=========================== Erros ===============================\n")
         print(header)
@@ -258,4 +247,3 @@ def show_token_count():
     print("-" * 35)
     for token, count in token_count.items():
         print(f"{token:<25} {count:<10}")
-

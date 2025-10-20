@@ -1,7 +1,6 @@
 import os
 from lexical_analyzer import process_file, show_tokens, show_symbol_table, show_token_count
 
-
 def list_example_tonto_files():
     base_dir = os.path.join(os.path.dirname(__file__), 'examples')
     found = []
@@ -10,7 +9,6 @@ def list_example_tonto_files():
             if fname.lower().endswith('.tonto'):
                 found.append(os.path.join(root, fname))
     return sorted(found)
-
 
 def choose_input_file():
     while True:
@@ -21,6 +19,9 @@ def choose_input_file():
 
         if choice == '1':
             path = input("Digite o caminho do arquivo .tonto: ").strip().strip('"')
+            if not os.path.isfile(path):
+                print("Arquivo não encontrado. Verifique o caminho e tente novamente.")
+                continue
             return path
         elif choice == '2':
             files = list_example_tonto_files()
@@ -40,7 +41,6 @@ def choose_input_file():
                 print("Seleção inválida. Tente novamente.")
         else:
             print("Opção inválida. Tente novamente.")
-
 
 def menu_loop():
     while True:
@@ -69,14 +69,12 @@ def menu_loop():
         else:
             print("Opção inválida. Tente novamente.")
 
-
 def main():
     file_path = choose_input_file()
     if process_file(file_path):
         menu_loop()
     else:
         print("Falha ao processar o arquivo. Encerrando.")
-
 
 if __name__ == "__main__":
     main()
