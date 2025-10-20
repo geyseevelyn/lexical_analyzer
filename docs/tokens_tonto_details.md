@@ -37,7 +37,7 @@
 *Tokens* que identificam os **nomes de classes**:
 
 - Devem iniciar com letra maiúscula, seguida por qualquer
-combinação de letras, ou tendo sublinhado como subcadeia própria, sem números. ar_Rental
+combinação de letras, ou tendo sublinhado como subcadeia própria, sem números.
 
 🔹 *Exemplos:*  
 ```tonto
@@ -66,7 +66,7 @@ import Address
 
 *Tokens* que identificam **conjuntos generalizadores** (*gensets*):
 
-- Seguem as mesmas regras dos **nomes de classes**, mas são precedidos pela palavras reservada `genset`.
+- Seguem as mesmas regras dos **nomes de classes**, mas são precedidos pela palavra reservada `genset`.
 
 🔹 *Exemplo:*  
 ```tonto
