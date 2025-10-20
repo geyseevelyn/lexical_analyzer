@@ -13,6 +13,7 @@ Este projeto implementa um **analisador léxico** para a linguagem [*TONTO*](htt
    * [Funcionalidades](#-funcionalidades)
    * [Especificação dos Tokens](#-especificação-dos-tokens)
    * [Como Usar](#-como-usar)
+   * [Exemplos](#-exemplos)
    * [Autores](#%E2%80%8D-autores)
    * [Licença](#-licença)
 <!--te-->
