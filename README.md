@@ -47,7 +47,7 @@ O **Analisador Léxico para a Linguagem TONTO** foi desenvolvido como parte de u
 - **Tipos de dados nativos**;
 - **Novos tipos de dados**; 
 - **Meta-atributos**;
-- **Símbolos especias**.
+- **Símbolos especiais**.
 
 Além desses elementos previamente especificados na descrição do trabalho, o analisador léxico reconhece:
 
