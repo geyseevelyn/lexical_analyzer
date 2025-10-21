@@ -93,9 +93,8 @@ A **especificação detalhada** dos *tokens* da linguagem **TONTO** reconhecidos
 
 ### Pré-requisitos 
 
-- [Python 3.10+](https://www.python.org/downloads/);
-- [PLY (Python Lex-Yacc)](https://www.dabeaz.com/ply/);
-- [TONTO](https://matheuslenke.github.io/tonto-docs/docs/intro-installling)
+- [Python 3.10+](https://www.python.org/downloads/)
+- [PLY (Python Lex-Yacc)](https://www.dabeaz.com/ply/)
 
 ### Instalação
 
