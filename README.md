@@ -51,8 +51,6 @@ O **Analisador Léxico para a Linguagem TONTO** foi desenvolvido como parte de u
 
 Além desses elementos previamente especificados na descrição do trabalho, o analisador léxico reconhece:
 
-- **Nomes de pacotes**;
-- ***Generalization sets (gensets)***;
 - **Atributos**;
 - **Enumerações**;
 - **Cardinalidades**.
