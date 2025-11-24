@@ -52,7 +52,6 @@ O **Analisador Léxico para a Linguagem TONTO** foi desenvolvido como parte de u
 Além desses elementos previamente especificados na descrição do trabalho, o analisador léxico reconhece:
 
 - **Atributos**;
-- **Enumerações**;
 - **Cardinalidades**.
 
 O resultado consiste em **relatórios detalhados** sobre os *tokens* encontrados, permitindo uma base sólida para análise sintática ou semântica posterior.
