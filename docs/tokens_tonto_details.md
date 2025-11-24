@@ -48,34 +48,7 @@ class Car_Rental
 
 ---
 
-### 5. `PACKAGE_NAME`
-
-*Tokens* que identificam  **pacotes** usados para modularização de ontologias:
-
-- Seguem as mesmas regras dos **nomes de classes**, mas são precedidos pelas palavras reservadas `package` ou `import`.
-
-🔹 *Exemplos:*  
-```tonto
-package School
-import Address
-```
-
----
-
-### 6. `GENSET_NAME`
-
-*Tokens* que identificam **conjuntos generalizadores** (*gensets*):
-
-- Seguem as mesmas regras dos **nomes de classes**, mas são precedidos pela palavra reservada `genset`.
-
-🔹 *Exemplo:*  
-```tonto
-genset PhasesOfPerson
-```
-
----
-
-### 7. `RELATION_NAME`
+### 5. `RELATION_NAME`
 
 *Tokens* que identificam os nomes de **relações** entre classes: 
 
@@ -88,7 +61,7 @@ has, hasParent, has_parent, isPartOf, is_part_of
 ```
 ---
 
-### 8. `INSTANCE_NAME`
+### 6. `INSTANCE_NAME`
 
 *Tokens* que que identificam os nomes de **instâncias** da ontologia: 
 
@@ -100,7 +73,7 @@ Planet1, Planet2 pizza03, car123
 ```
 ---
 
-### 9. `ATTRIBUTE`
+### 7. `ATTRIBUTE`
 
 *Tokens* que identificam **atributos** de *Classes* e *DataTypes*:
 
@@ -113,7 +86,7 @@ name:, age:, birthDate:, phoneNumber:
 
 ---
 
-### 10. `META_ATTRIBUTE`
+### 8. `META_ATTRIBUTE`
 
 *Tokens* que que representam os **meta-atributos** da linguagem **TONTO**:
 
@@ -121,7 +94,7 @@ name:, age:, birthDate:, phoneNumber:
 
 ---
 
-### 11. `NATIVE_DATATYPE`
+### 9. `NATIVE_DATATYPE`
 
 *Tokens* que representam os **tipos de dados nativos** aceitos na linguagem **TONTO**:
 
@@ -129,7 +102,7 @@ name:, age:, birthDate:, phoneNumber:
 
 ---
 
-### 12. `NEW_DATATYPE`
+### 10. `NEW_DATATYPE`
 
 *Tokens* que identificam **novos tipos de dados personalizados**, criados pelo usuário:
 
@@ -142,7 +115,7 @@ CPFDataType, PhoneNumberDataType, AddressDataType
  
 ---
 
-### 13. `ENUM_NAME`
+### 11. `ENUM_NAME`
 
 *Tokens* que identificam **enumerações**, um tipo específico de *DataType*:
 
@@ -155,7 +128,7 @@ EyeColorEnum, WeekdaysEnum
 
 ---
 
-### 14. `SPECIAL_SYMBOL`
+### 12. `SPECIAL_SYMBOL`
 
 *Tokens* que representam **símbolos especiais** da sintaxe **TONTO**, usados para delimitar, agrupar ou indicar relações entre elementos:
 
@@ -163,7 +136,7 @@ EyeColorEnum, WeekdaysEnum
 
 ---
 
-### 15. `CARDINALITY`
+### 13. `CARDINALITY`
 
 *Tokens* que especificam **restrições de multiplicidade** em relações ou atributos.  
 

@@ -1,5 +1,5 @@
 import os
-from lexical_analyzer import process_file, show_tokens, show_symbol_table, show_token_count
+from lexer import process_file, show_tokens, show_symbol_table, show_token_count
 
 def list_example_tonto_files():
     base_dir = os.path.join(os.path.dirname(__file__), 'examples')

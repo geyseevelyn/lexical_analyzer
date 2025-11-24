@@ -4,7 +4,7 @@ import ply.lex as lex
 tokens = [
     'CLASS_STEREOTYPE', 'RELATION_STEREOTYPE', 'KEYWORD', 'SPECIAL_SYMBOL', 'CLASS_NAME', 
     'RELATION_NAME','INSTANCE_NAME', 'NATIVE_DATATYPE', 'NEW_DATATYPE','META_ATTRIBUTE',
-    'ENUM_NAME', 'PACKAGE_NAME', 'GENSET_NAME', 'ATTRIBUTE', 'CARDINALITY'
+    'ENUM_NAME', 'ATTRIBUTE', 'CARDINALITY'
 ]
 
 # Palavras reservadas
@@ -153,19 +153,6 @@ def t_RELATION_NAME(t):
 # Convenção para nomes de Classes (também usado para Packages e GenSets)
 def t_CLASS_NAME(t):
     r'\b[A-Z][a-zA-Z]*(?:_[a-zA-Z][a-zA-Z]*)*\b'
-    global last_keyword
-
-    # Verifica se é um PACKAGE_NAME
-    if last_keyword in ['package', 'import']:
-        t.type = 'PACKAGE_NAME'
-        last_keyword = None
-    # Verifica se é um GENSET_NAME
-    elif last_keyword == 'genset':
-        t.type = 'GENSET_NAME'
-        last_keyword = None
-    else:
-        t.type = 'CLASS_NAME'
-    
     add_to_symbol_table(t)
     return t
 
