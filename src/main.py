@@ -1,5 +1,12 @@
 import os
-from lexical_analyzer import process_file, show_tokens, show_symbol_table, show_token_count
+from lexical_analyzer import (
+    process_file,
+    show_tokens,
+    show_symbol_table,
+    show_token_count,
+    show_syntax_summary,
+    show_ontology_errors,
+)
 
 def list_example_tonto_files():
     base_dir = os.path.join(os.path.dirname(__file__), 'examples')
@@ -48,8 +55,10 @@ def menu_loop():
         print("1. Exibir Tokens Processados")
         print("2. Exibir Tabela de Símbolos")
         print("3. Exibir Contagem de Tokens")
-        print("4. Analisar outro arquivo (.tonto)")
-        print("5. Sair")
+        print("4. Exibir Síntese da Análise Sintática")
+        print("5. Exibir Relatório de Erros da Ontologia")
+        print("6. Analisar outro arquivo (.tonto)")
+        print("7. Sair")
         choice = input("Escolha uma opção: ").strip()
         if choice == '1':
             show_tokens()
@@ -58,12 +67,16 @@ def menu_loop():
         elif choice == '3':
             show_token_count()
         elif choice == '4':
+            show_syntax_summary()
+        elif choice == '5':
+            show_ontology_errors()
+        elif choice == '6':
             new_path = choose_input_file()
             if process_file(new_path):
                 print("Arquivo processado com sucesso. Você pode visualizar os dados com as opções 1-3.")
             else:
                 print("Falha ao processar o arquivo selecionado.")
-        elif choice == '5':
+        elif choice == '7':
             print("Saindo...")
             break
         else:
