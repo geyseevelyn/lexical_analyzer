@@ -98,7 +98,7 @@ name:, age:, birthDate:, phoneNumber:
 
 *Tokens* que representam os **tipos de dados nativos** aceitos na linguagem **TONTO**:
 
--`number`, `string`, `boolean`, `date`, `time`, `datetime`
+`number`, `string`, `boolean`, `date`, `time`, `datetime`
 
 ---
 
@@ -115,20 +115,7 @@ CPFDataType, PhoneNumberDataType, AddressDataType
  
 ---
 
-### 11. `ENUM_NAME`
-
-*Tokens* que identificam **enumerações**, um tipo específico de *DataType*:
-
-- Começam com letras, sem números, sem sublinhado e devem terminar com a subcadeia `Enum`.
-
-🔹 *Exemplo:*  
-```tonto
-EyeColorEnum, WeekdaysEnum
-```
-
----
-
-### 12. `SPECIAL_SYMBOL`
+### 11. `SPECIAL_SYMBOL`
 
 *Tokens* que representam **símbolos especiais** da sintaxe **TONTO**, usados para delimitar, agrupar ou indicar relações entre elementos:
 
@@ -136,7 +123,7 @@ EyeColorEnum, WeekdaysEnum
 
 ---
 
-### 13. `CARDINALITY`
+### 12. `CARDINALITY`
 
 *Tokens* que especificam **restrições de multiplicidade** em relações ou atributos.  
 

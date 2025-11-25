@@ -52,7 +52,6 @@ O **Analisador Léxico para a Linguagem TONTO** foi desenvolvido como parte de u
 Além desses elementos previamente especificados na descrição do trabalho, o analisador léxico reconhece:
 
 - **Atributos**;
-- **Enumerações**;
 - **Cardinalidades**.
 
 O resultado consiste em **relatórios detalhados** sobre os *tokens* encontrados, permitindo uma base sólida para análise sintática ou semântica posterior.
@@ -183,7 +182,7 @@ relator CarOwnership {
   | **Token**           | **Valor**        | **Linha** | **Posição** |
   | ------------------- | ---------------- | --------- | ----------- |
   | KEYWORD             | package          | 1         | 0           |
-  | PACKAGE_NAME        | CarOwnership     | 1         | 8           |
+  | CLASS_NAME          | CarOwnership     | 1         | 8           |
   | CLASS_STEREOTYPE    | kind             | 3         | 23          |
   | CLASS_NAME          | Organization     | 3         | 28          |
   | CLASS_STEREOTYPE    | subkind          | 4         | 41          |
@@ -221,7 +220,7 @@ relator CarOwnership {
   | **Token**            | **Valor**        |
   | -------------------  | ---------------- |
   | KEYWORD              | package          |
-  | PACKAGE_NAME         | CarOwnership     |
+  | CLASS_NAME           | CarOwnership     |
   | CLASS_STEREOTYPE     | kind             |
   | CLASS_NAME           | Organization     |
   | CLASS_STEREOTYPE     | subkind          |
@@ -251,15 +250,12 @@ relator CarOwnership {
   | RELATION_STEREOTYPE | 2              |
   | KEYWORD             | 2              |
   | SPECIAL_SYMBOL      | 8              |
-  | CLASS_NAME          | 7              |
+  | CLASS_NAME          | 8              |
   | RELATION_NAME       | 2              |
   | INSTANCE_NAME       | 0              |
   | NATIVE_DATATYPE     | 0              |
   | NEW_DATATYPE        | 0              |
   | META_ATTRIBUTE      | 0              |
-  | ENUM_NAME           | 0              |
-  | PACKAGE_NAME        | 1              |
-  | GENSET_NAME         | 0              |
   | ATTRIBUTE           | 0              |
   | CARDINALITY         | 2              |
 

@@ -4,7 +4,7 @@ import ply.lex as lex
 tokens = [
     'CLASS_STEREOTYPE', 'RELATION_STEREOTYPE', 'KEYWORD', 'SPECIAL_SYMBOL', 'CLASS_NAME', 
     'RELATION_NAME','INSTANCE_NAME', 'NATIVE_DATATYPE', 'NEW_DATATYPE','META_ATTRIBUTE',
-    'ENUM_NAME', 'ATTRIBUTE', 'CARDINALITY'
+    'ATTRIBUTE', 'CARDINALITY'
 ]
 
 # Palavras reservadas
@@ -86,12 +86,6 @@ def t_ATTRIBUTE(t):
 # Novos tipos de dados
 def t_NEW_DATATYPE(t):
     r'\b[A-Za-z]+DataType\b'
-    add_to_symbol_table(t)
-    return t
-
-# Enumerações
-def t_ENUM_NAME(t):
-    r'\b[A-Za-z]+Enum\b'
     add_to_symbol_table(t)
     return t
 
