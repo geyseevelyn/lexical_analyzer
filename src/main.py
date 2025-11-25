@@ -1,5 +1,5 @@
 import os
-from lexical_analyzer import (
+from lexer import (
     process_file,
     show_tokens,
     show_symbol_table,
