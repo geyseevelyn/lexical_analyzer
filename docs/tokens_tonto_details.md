@@ -65,7 +65,7 @@ has, hasParent, has_parent, isPartOf, is_part_of
 
 *Tokens* que que identificam os nomes de **instâncias** da ontologia: 
 
-- Iniciam com qualquer letra, podendo ter o sublinhado como subcadeia própria e terminando com algum número inteiro. 
+- Iniciam com qualquer letra, podendo ter o sublinhado como subcadeia própria e **terminando com algum número inteiro**. 
 
 🔹 *Exemplos:*  
 ```tonto
@@ -77,7 +77,7 @@ Planet1, Planet2 pizza03, car123
 
 *Tokens* que identificam **atributos** de *Classes* e *DataTypes*:
 
-- Devem começar com letra minúscula, seguida por qualquer combinação de letras, sem números, sem sublinhado e terminando em `:` .
+- Devem começar com letra minúscula, seguida por qualquer combinação de letras ou sublinhado como subcadeia própria, mas sem números. **Devem terminar em** `:`.
 
 🔹 *Exemplos:*  
 ```tonto
