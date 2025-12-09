@@ -150,6 +150,16 @@ def t_CLASS_NAME(t):
     add_to_symbol_table(t)
     return t
 
+# Comentários de Linha (//...)
+def t_line_comment(_):
+    r'//.*'
+    pass  # ignora o texto do comentário
+
+# Comentários de Bloco (/*...*/)
+def t_block_comment(t):
+    r'/\*(\n|.)*?\*/'
+    t.lexer.lineno += t.value.count('\n')  # O contador de linhas é atualizado
+
 # Atualizar contagem de linhas
 def t_newline(t):
     r'\n+'
