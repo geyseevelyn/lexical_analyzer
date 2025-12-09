@@ -7,7 +7,7 @@ kind Person {
     name: string [1..*]
     age: number [1]
     birthDate: date [1] { const }
-    eyeColor: EyeColorEnum [1..*]
+    eyeColor: EyeColor [1..*]
     phoneNumber: CoreDatatypes.PhoneNumberDataType [0..*] 
 }
 
