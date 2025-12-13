@@ -10,6 +10,7 @@ Este projeto implementa um **analisador léxico** para a linguagem [*TONTO*](htt
    * [A Linguagem TONTO](#-a-linguagem-tonto)
    * [Sobre o Projeto](#-sobre-o-projeto)
    * [Tecnologias Utilizadas](#-tecnologias-utilizadas)
+   * [Estrutura de Pastas](#-estrutura-de-pastas)
    * [Funcionalidades](#-funcionalidades)
    * [Especificação dos Tokens](#-especificação-dos-tokens)
    * [Como Usar](#-como-usar)
@@ -66,6 +67,24 @@ O resultado consiste em **relatórios detalhados** sobre os *tokens* encontrados
 
 ---
 
+## 📂 Estrutura de Pastas
+
+```shell
+lexical_analyzer/
+├── docs/                      
+│   └── tonto_tokens_details.md   # Documentação dos tokens reconhecidos
+├── src/                        
+│   ├── examples/                 # Arquivos TONTO de entrada para testes
+│   ├── lexer.py                  # Implementação do analisador léxico e funções de processamento/relatório
+│   └── main.py                   # Ponto de entrada para executar o lexer nos arquivos de exemplo
+├── .gitignore                    # Arquivo para ignorar pastas e arquivos gerados (padrão Git)
+├── LICENSE                       # Informações sobre a licença de uso do código.
+└── README.md                     # Documentação principal do projeto.
+
+```
+
+---
+
 ## ✨ Funcionalidades
 
 - **Reconhecimento de Tokens:** reconhece e categoriza os *tokens* válidos da linguagem **TONTO** (citados na seção [Sobre o Projeto](#-sobre-o-projeto));
@@ -82,7 +101,7 @@ O resultado consiste em **relatórios detalhados** sobre os *tokens* encontrados
 
 ## 🔤 Especificação dos *Tokens*
 
-A **especificação detalhada** dos *tokens* da linguagem **TONTO** reconhecidos e categorizados pelo analisador léxico pode ser encontrada nesse [documento](docs/tokens_tonto_details.md). 
+A **especificação detalhada** dos *tokens* da linguagem **TONTO** reconhecidos e categorizados pelo analisador léxico pode ser encontrada nesse [documento](docs/tonto_tokens_details.md).
 
 ---
 
